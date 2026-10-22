@@ -11,7 +11,7 @@
     "postbuild": "node scripts/check-dist.mjs",
     "preview": "vite preview",
     "pretest": "node --experimental-strip-types scripts/publish-catalog.mjs",
-    "test": "vitest run",
+    "test": "vitest run --exclude tests/dist-safety.test.ts && npm run build && vitest run tests/dist-safety.test.ts",
     "test:e2e": "playwright test",
     "check:dist": "node scripts/check-dist.mjs"
   },

@@ -5,7 +5,7 @@ A static reading site for a sourced pack about Aboriginal and Torres Strait Isla
 ## Cultural protocol
 
 - Link the [AIATSIS map of Indigenous Australia](https://aiatsis.gov.au/explore/map-indigenous-australia). Do not crop it, overlay it, or turn it into a GIS layer.
-- Kuniya and Liru, and the Seven Sisters, are link-only. The site keeps the title and the sources and does not retell them.
+- Link-only stories are a neutral label and the custodians' link. The site does not publish the story name or a retelling.
 - Kata Tjuta and Wollumbin stay places. No story is attached.
 - Anthwerrke (Emily Gap): no photographs of the rock art.
 - Djang'kawu: do not reproduce the designs.
@@ -24,7 +24,7 @@ npm run build
 npm run test:e2e
 ```
 
-`npm test` publishes `public/catalog.json` and runs Vitest. `npm run build` typechecks, builds `dist/`, and checks that `dist/` contains no link-only retelling, no Pages Functions, and the security headers. `npm run test:e2e` runs the Playwright suite. Use `--project=chromium` or `--project=webkit` to run one browser.
+`npm test` publishes `public/catalog.json`, runs Vitest, builds `dist/`, and greps every file in `dist/` for link-only names and private notes. `npm run build` typechecks, builds `dist/`, and checks that `dist/` contains no link-only retelling, no Pages Functions, and the security headers. `npm run test:e2e` runs the Playwright suite. Use `--project=chromium` or `--project=webkit` to run one browser.
 
 There is no Cloudflare token in this repo and no deploy job. The history-of-humanity-map bridge publishes `dist/` to the `indigenous-australia` Pages project.
 

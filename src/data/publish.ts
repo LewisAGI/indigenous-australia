@@ -1,3 +1,4 @@
+import { toPublicSensitivity } from './protocol.ts';
 import { parseContent, parseSources } from './schema.ts';
 import type { ContentPack, PublishStatus, Source, Story } from './schema.ts';
 
@@ -124,7 +125,21 @@ function publishParsed(content: ContentPack, sources: Source[]): PublicCatalog {
 
 function stripRetelling(story: Story): Story {
   if (story.publish_status !== 'link-only') return story;
-  return { ...story, public_summary: null };
+  const title =
+    story.id === 's1'
+      ? "Anangu Tjukurpa: see the custodians' source"
+      : story.id === 's9'
+        ? "A desert songline: see the custodians' source"
+        : "Story: see the custodians' source";
+  const next: Story = {
+    ...story,
+    title,
+    public_summary: null,
+    sources: story.sources.filter((id) => id !== 'uluru-kuniya'),
+  };
+  delete next.deceased_note;
+  delete next.sensitivity;
+  return next;
 }
 
 /** Drop an unchecked aside without rewriting the sourced sentence around it. */
@@ -134,10 +149,14 @@ export function scrubText(value: string): string {
 
 function scrubEntry<T extends Publishable>(entry: T): T {
   const next: Record<string, unknown> = { ...(entry as unknown as Record<string, unknown>) };
-  ['text', 'title', 'place', 'nation', 'public_summary', 'name', 'sensitivity', 'uncertainty', 'debate', 'deceased_note'].forEach((key) => {
+  ['text', 'title', 'place', 'nation', 'public_summary', 'name', 'uncertainty', 'debate'].forEach((key) => {
     const value = next[key];
     if (typeof value === 'string') next[key] = scrubText(value);
   });
+  delete next.deceased_note;
+  const protocol = toPublicSensitivity(typeof next.sensitivity === 'string' ? next.sensitivity : undefined);
+  if (protocol) next.sensitivity = protocol;
+  else delete next.sensitivity;
   return next as T;
 }
 

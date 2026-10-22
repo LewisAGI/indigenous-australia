@@ -248,7 +248,7 @@ function parseStory(value: unknown, sources: Map<string, Source>, mode: ParseMod
   } else {
     summary = asText(record.public_summary, `${id} public_summary`);
   }
-  // Link-only stories (Kuniya & Liru, Seven Sisters) are not retold.
+  // Link-only stories are not retold. The public title is a neutral label.
   if (mode === 'public' && publishStatus === 'link-only') summary = null;
   const story: Story = {
     id,

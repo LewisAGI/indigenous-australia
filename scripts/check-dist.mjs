@@ -1,5 +1,6 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import { privatePhrases } from './private-phrases.mjs';
 
 const root = 'dist';
 const failures = [];
@@ -20,9 +21,13 @@ function walk(dir) {
       continue;
     }
     if (!/\.(html|js|css|json|txt|svg|webmanifest)$/i.test(entry)) continue;
-    const text = readFileSync(path, 'utf8').toLowerCase();
+    const raw = readFileSync(path, 'utf8');
+    const text = raw.toLowerCase();
     banned.forEach((phrase) => {
       if (text.includes(phrase)) fail(`${phrase} in ${path}`);
+    });
+    privatePhrases.forEach((phrase) => {
+      if (raw.includes(phrase)) fail(`${phrase} in ${path}`);
     });
   }
 }

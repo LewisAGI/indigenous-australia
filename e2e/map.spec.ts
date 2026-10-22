@@ -28,6 +28,11 @@ test.describe('published site', () => {
     await page.getByRole('button', { name: 'People' }).click();
     await expect(page.locator('[data-entry="pp1"]')).toHaveAttribute('data-life', 'living');
     await expect(page.locator('[data-entry="pp2"]')).toHaveAttribute('data-life', 'deceased');
+    await page.locator('[data-entry="pp2"]').click();
+    await expect(page.locator('[data-deceased-warning="person"]')).toBeVisible();
+    await expect(page.locator('[data-page="person"]')).not.toContainText('Mabo');
+    await expect(page.locator('[data-page="person"]')).not.toContainText('Koiki');
+    await page.getByRole('button', { name: 'Back' }).click();
     await page.locator('[data-entry="pp5"]').click();
     await expect(page.locator('[data-deceased-warning="person"]')).toBeVisible();
   });
@@ -46,17 +51,24 @@ test.describe('published site', () => {
     await page.getByRole('button', { name: 'Stories' }).click();
     await page.getByRole('button', { name: /Djang/ }).click();
     await expect(page.locator('[data-note="no-designs"]')).toBeVisible();
+    await expect(page.locator('[data-page="story"]')).not.toContainText('Mawalan');
+    await expect(page.locator('[data-page="story"]')).not.toContainText('Milpirrum');
+    await expect(page.locator('[data-page="story"]')).not.toContainText('ICIP');
     await page.getByRole('button', { name: 'Back' }).click();
-    await page.getByRole('button', { name: /Kuniya/ }).click();
-    const kuniya = page.locator('[data-page="story"]');
-    await expect(kuniya).toHaveAttribute('data-publish', 'link-only');
-    await expect(kuniya.locator('[data-summary]')).toHaveCount(0);
-    await expect(kuniya).not.toContainText(/woma python/i);
-    await expect(kuniya).not.toContainText(/poisonous brown snake/i);
-    await expect(kuniya.locator('a').first()).toBeVisible();
+    await page.getByRole('button', { name: /custodians' source/ }).first().click();
+    const linkOnly = page.locator('[data-page="story"]');
+    await expect(linkOnly).toHaveAttribute('data-publish', 'link-only');
+    await expect(linkOnly.locator('[data-summary]')).toHaveCount(0);
+    await expect(linkOnly).not.toContainText('Kuniya');
+    await expect(linkOnly).not.toContainText('Liru');
+    await expect(linkOnly).not.toContainText('RECOMMEND');
+    await expect(linkOnly).not.toContainText(/woma python/i);
+    await expect(linkOnly).not.toContainText(/poisonous brown snake/i);
+    await expect(linkOnly.locator('a').first()).toBeVisible();
     await page.getByRole('button', { name: 'Stories' }).click();
-    await page.getByRole('button', { name: /Seven Sisters/ }).click();
+    await page.getByRole('button', { name: /desert songline/ }).click();
     await expect(page.locator('[data-page="story"]')).not.toContainText(/pursuit and escape/i);
+    await expect(page.locator('[data-page="story"]')).not.toContainText('Seven Sisters');
   });
 
   test('draws the single sourced marker', async ({ page }) => {

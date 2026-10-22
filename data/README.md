@@ -40,7 +40,9 @@ The site does not read this pack in the browser. `scripts/publish-catalog.mjs` w
 Left out of the public catalog:
 
 - `meta.deceased_warning_note` (later entries do name people, so the pack sentence that says otherwise is not shown)
-- `public_summary` on link-only stories
+- `public_summary` on link-only stories, and those stories' names (the public title is a neutral label plus the custodians' link)
+- `deceased_note` on every entry (the deceased-persons warning covers it)
+- raw `sensitivity` text (the site keeps only the fixed lines "Do not photograph", "Designs not reproduced", and "Shared with permission of custodians")
 - stories marked secret or sacred, pending review, or with a search-summary label
 - any entry whose sources are all unchecked (a search summary or a search-result page extract)
 - knowledge whose sensitivity begins `RESTRICTED -` or says not to publish

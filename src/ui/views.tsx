@@ -214,7 +214,6 @@ function StoryBody({ catalog, story }: { catalog: Catalog; story: Story }) {
     <>
       <ExampleFlag entry={story} />
       {needsDeceasedWarning(story.deceased_persons) ? <WarningCopy text={warning} scope="story" /> : null}
-      {story.deceased_note ? <p className="popup-note">{story.deceased_note}</p> : null}
       <h2 className="popup-title">{story.title}</h2>
       <p className="popup-place">{story.nation}</p>
       <p className="popup-place">{story.place}</p>

@@ -1,6 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { hasCheckedSource, isUncheckedQuality, scrubText, toPublicCatalog } from '../src/data/publish.ts';
+import { isPublicProtocolLine } from '../src/data/protocol.ts';
+import { hasCheckedSource, isPublishedStory, isUncheckedQuality, parsePublicCatalog, scrubText } from '../src/data/publish.ts';
+import { publishCatalog } from '../src/data/redact-public.ts';
 import {
   buildMarkers,
   filterGroups,
@@ -20,8 +22,24 @@ import type { ContentPack, Source, Story } from '../src/data/schema.ts';
 
 const content = JSON.parse(readFileSync(new URL('../data/content.json', import.meta.url), 'utf8')) as ContentPack;
 const sources = JSON.parse(readFileSync(new URL('../data/sources.json', import.meta.url), 'utf8')) as Source[];
-const catalog = toPublicCatalog(content, sources);
+const catalog = publishCatalog(content, sources);
 const banned = [/woma python/i, /poisonous brown snake/i, /pursuit and escape/i, /no deceased persons are named/i];
+
+function collectSensitivity(value: unknown): string[] {
+  const lines: string[] = [];
+  const visit = (node: unknown) => {
+    if (!node || typeof node !== 'object') return;
+    if (Array.isArray(node)) {
+      node.forEach(visit);
+      return;
+    }
+    const record = node as Record<string, unknown>;
+    if (typeof record.sensitivity === 'string') lines.push(...record.sensitivity.split('\n'));
+    Object.values(record).forEach(visit);
+  };
+  visit(value);
+  return lines;
+}
 
 function story(id: string): Story {
   const found = catalog.content.stories.find((item) => item.id === id);
@@ -47,7 +65,16 @@ describe('pack counts and the public catalog', () => {
     banned.forEach((pattern) => expect(blob).not.toMatch(pattern));
     expect(story('s1').public_summary).toBeNull();
     expect(story('s9').public_summary).toBeNull();
+    expect(story('s1').title).toBe("Anangu Tjukurpa: see the custodians' source");
+    expect(story('s9').title).toBe("A desert songline: see the custodians' source");
+    expect(story('s1').sources).toEqual(['uluru-stories']);
     expect(story('s1').publish_status).toBe('link-only');
+    expect(blob).not.toContain('deceased_note');
+    ['Kuniya', 'Liru', 'Seven Sisters', 'Minyipuru', 'Kungkarangkalpa', 'RECOMMEND', 'Check with', 'ICIP', 'Mawalan', 'Milpirrum', 'Koiki', 'Mabo'].forEach(
+      (phrase) => expect(blob, phrase).not.toContain(phrase),
+    );
+    const protocols = collectSensitivity(catalog);
+    protocols.forEach((line) => expect(isPublicProtocolLine(line)).toBe(true));
     expect(story('s4').publish_status).toBe('summary-with-credit');
     expect(story('s5').publish_status).toBe('summary-with-credit');
     expect(story('s5').place).not.toMatch(/search-summary/i);
@@ -62,6 +89,7 @@ describe('pack counts and the public catalog', () => {
   it('matches the catalog written for the build', () => {
     const written = JSON.parse(readFileSync(new URL('../public/catalog.json', import.meta.url), 'utf8'));
     expect(written).toEqual(catalog);
+    expect(parsePublicCatalog(written)).toEqual(catalog);
   });
 
   it('places one sourced marker and keeps restricted places story-free', () => {
@@ -102,7 +130,7 @@ describe('reading tools', () => {
     expect(terms.some((term) => term.id === 'k25')).toBe(false);
     const anangu = catalog.content.groups.find((group) => group.id === 'g1');
     const gunditjmara = catalog.content.groups.find((group) => group.id === 'g2');
-    expect(anangu && nationSnapshot(anangu, catalog.content).stories.some((title) => /Kuniya/.test(title))).toBe(true);
+    expect(anangu && nationSnapshot(anangu, catalog.content).stories).toContain("Anangu Tjukurpa: see the custodians' source");
     expect(gunditjmara && nationSnapshot(gunditjmara, catalog.content).places.some((title) => /Budj Bim/.test(title))).toBe(true);
     expect(filterGroups(catalog.content.groups, 'historic', false)).toEqual([]);
     expect(filterGroups(catalog.content.groups, 'present', true).every((group) => group.torres_strait)).toBe(true);
@@ -173,12 +201,37 @@ describe('reading tools', () => {
       label: 'evidence',
       sensitivity: 'RESTRICTED - do not publish stories',
     });
-    const published = toPublicCatalog(next, extraSources);
+    const published = publishCatalog(next, extraSources);
     const ids = [
       ...published.content.stories.map((item) => item.id),
       ...published.content.knowledge.map((item) => item.id),
     ];
     expect(ids).not.toEqual(expect.arrayContaining(['s-secret', 's-pending', 's-search', 'k-un', 'k-restricted']));
+  });
+
+  it('withholds a story that is still pending review', () => {
+    const pending: Story = {
+      id: 's-pending',
+      title: 'Pending',
+      nation: 'Test',
+      place: 'Test place',
+      public_summary: 'Still being checked',
+      sources: ['zz-ok'],
+      label: 'evidence',
+      publish_status: 'summary-pending-review',
+      secret_sacred: false,
+      deceased_persons: false,
+    };
+    expect(isPublishedStory(pending)).toBe(false);
+    const extraSources = [
+      ...sources,
+      { id: 'zz-ok', title: 'Checked', author_org: 'Test', url: 'https://example.com/ok', date_accessed: '2026-10-22', quality: 'Primary' },
+    ];
+    const next = structuredClone(content);
+    next.stories.push(pending);
+    const published = publishCatalog(next, extraSources);
+    expect(published.content.stories.some((item) => item.id === 's-pending')).toBe(false);
+    expect(published.content.stories.some((item) => item.publish_status === 'summary-pending-review')).toBe(false);
   });
 
   it('rejects geometry on an entry', () => {

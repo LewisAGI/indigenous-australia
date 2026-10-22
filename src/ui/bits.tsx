@@ -1,5 +1,6 @@
 import { isUncheckedQuality } from '../data/publish';
 import { forbidsDesigns, isExampleData, noPhotographyNote, splitInference, splitLabel } from '../data/present';
+import { visibleProtocolLines } from '../data/protocol';
 import type { Source } from '../data/schema';
 import { Badge } from './Badge';
 
@@ -62,7 +63,8 @@ export function Notes({
   debate?: string;
   sensitivity?: string;
 }) {
-  if (!uncertainty && !debate && !sensitivity) return null;
+  const protocols = visibleProtocolLines(sensitivity);
+  if (!uncertainty && !debate && protocols.length === 0) return null;
   return (
     <>
       {uncertainty ? (
@@ -75,11 +77,11 @@ export function Notes({
           {debate}
         </p>
       ) : null}
-      {sensitivity ? (
-        <p className="popup-note" data-sensitivity="">
-          {sensitivity}
+      {protocols.map((line) => (
+        <p key={line} className="popup-note" data-sensitivity="">
+          {line}
         </p>
-      ) : null}
+      ))}
     </>
   );
 }
