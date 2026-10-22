@@ -8,6 +8,7 @@
     "dev": "vite",
     "prebuild": "node --experimental-strip-types scripts/publish-catalog.mjs",
     "build": "tsc --noEmit && vite build",
+    "postbuild": "node scripts/check-dist.mjs",
     "preview": "vite preview",
     "pretest": "node --experimental-strip-types scripts/publish-catalog.mjs",
     "test": "vitest run",

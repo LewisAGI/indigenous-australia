@@ -32,3 +32,17 @@ New sections: `people`, `timeline`, `further_reading` (same entry schema; every 
 - Bunjil (s4) upgraded: Parks Victoria page verified. Waugal/Waakal (s5) rewritten to archived Kaartdijin Noongar text; Derbarl Yerrigan link remains unverified.
 - People entries with unknown life status carry `deceased_persons: "unknown - apply warning"`.
 Gaps: no coordinates for new places (deliberately; boundaries contested); TAC gazettal dates per name not captured; Tasmania stories not added (none publicly shared in sources read); N234 page not readable.
+
+## Site use
+
+The site does not read this pack in the browser. `scripts/publish-catalog.mjs` writes `public/catalog.json`, and that file is what the pages load.
+
+Left out of the public catalog:
+
+- `meta.deceased_warning_note` (later entries do name people, so the pack sentence that says otherwise is not shown)
+- `public_summary` on link-only stories
+- stories marked secret or sacred, pending review, or with a search-summary label
+- any entry whose sources are all unchecked (a search summary or a search-result page extract)
+- knowledge whose sensitivity begins `RESTRICTED -` or says not to publish
+
+Coordinates are copied only where this pack already has them. Names are not geocoded. Kata Tjuta and Wollumbin remain places with no story. Anthwerrke (Emily Gap) keeps the no-photography note. Djang'kawu keeps the no-designs note. A missing or unknown life status keeps the deceased-persons warning.

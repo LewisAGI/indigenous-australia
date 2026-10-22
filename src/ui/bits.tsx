@@ -1,3 +1,4 @@
+import { isUncheckedQuality } from '../data/publish';
 import { forbidsDesigns, isExampleData, noPhotographyNote, splitInference, splitLabel } from '../data/present';
 import type { Source } from '../data/schema';
 import { Badge } from './Badge';
@@ -99,7 +100,7 @@ export function SourceList({ ids, sources }: { ids: string[]; sources: Source[] 
       {ids.map((id) => {
         const source = sources.find((item) => item.id === id);
         if (!source) return null;
-        const unchecked = /search summary/i.test(source.quality);
+        const unchecked = isUncheckedQuality(source.quality);
         return (
           <li key={id}>
             <a href={source.url} target="_blank" rel="noreferrer">
@@ -108,8 +109,8 @@ export function SourceList({ ids, sources }: { ids: string[]; sources: Source[] 
             <span>{source.author_org}</span>
             <span>Accessed {source.date_accessed}</span>
             {unchecked ? (
-              <span className="badge badge-inference" data-source-quality="search-summary">
-                Search summary
+              <span className="badge badge-inference" data-source-quality="unchecked">
+                Unchecked
               </span>
             ) : null}
           </li>
@@ -120,7 +121,7 @@ export function SourceList({ ids, sources }: { ids: string[]; sources: Source[] 
 }
 
 export function AustlangList({ codes, sources }: { codes?: string[]; sources: Source[] }) {
-  if (!codes || codes.length === 0) return <p className="popup-note">No AustLang code in this pack.</p>;
+  if (!codes || codes.length === 0) return null;
   return (
     <ul className="sources">
       {codes.map((code) => {

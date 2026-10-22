@@ -193,6 +193,7 @@ html, body {
 
 .menu-item {
   width: 100%;
+  min-height: 44px;
   text-align: left;
   display: flex;
   flex-wrap: wrap;
@@ -209,9 +210,33 @@ html, body {
 .menu-item[aria-current="true"], .menu-item:hover { background: rgba(255, 255, 255, 0.08); }
 .row-title { font-weight: 650; }
 
+.popup-title, .link-heading { overflow-wrap: break-word; }
 .popup-title {
   margin: 0 0 6px;
   font: 600 18px/1.25 "Iowan Old Style", Palatino, Georgia, serif;
+}
+.link-heading {
+  margin: 14px 0 0;
+  font: 600 12px/1.2 system-ui, sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.compare article { min-width: 0; }
+.popout input, .popout textarea, .popout select {
+  width: 100%;
+  font: 16px/1.4 system-ui, sans-serif;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 8px 0;
 }
 .popup-place, .popup-note { margin: 4px 0; color: var(--muted); font-size: 13px; }
 .boundary { margin: 8px 0; font-size: 13px; }
@@ -345,12 +370,32 @@ html, body {
 }
 .gate-card h2 { margin: 0 0 8px; font: 600 22px/1.2 "Iowan Old Style", Palatino, Georgia, serif; }
 .gate-continue {
-  min-height: 44px;
+  width: 44px;
+  height: 44px;
   margin-top: 8px;
-  padding: 0 16px;
+  padding: 0;
   color: #12161c;
   background: var(--ink);
-  border: 0;
-  border-radius: 8px;
-  font-weight: 700;
+  border-radius: 50%;
+}
+.sheet-body, .caveat, .ack p, .popup-note, .protocol { overflow-wrap: break-word; }
+
+@media (max-width: 720px) {
+  .wordmark { flex-basis: 100%; font-size: 16px; }
+  .compare { grid-template-columns: 1fr; }
+  .chrome { padding-left: 8px; padding-right: 8px; }
+  .tools { gap: 4px; }
+}
+
+.chrome [data-tip].is-long-tip::after,
+.chrome [data-tip]:focus-visible::after {
+  top: calc(100% + 6px);
+  bottom: auto;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .chrome [data-tip]:hover::after {
+    top: calc(100% + 6px);
+    bottom: auto;
+  }
 }

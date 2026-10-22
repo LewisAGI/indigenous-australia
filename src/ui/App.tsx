@@ -1,43 +1,64 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { loadCatalog } from '../data/load';
 import type { PublicCatalog } from '../data/publish';
-import { buildMarkers } from '../data/present';
+import { buildMarkers, searchCatalog } from '../data/present';
 import type { EraStatus } from '../data/schema';
 import { createGlobe, type GlobeController } from '../globe/createGlobe';
 import { IconButton } from './IconButton';
 import { ReadingSheet } from './ReadingSheet';
 import {
+  IconAll,
+  IconCheck,
   IconClose,
+  IconCompare,
+  IconFilter,
+  IconGlossary,
+  IconHistoric,
   IconKnowledge,
   IconMap,
   IconMinus,
+  IconMore,
   IconNations,
   IconPeople,
   IconPlaces,
   IconPlus,
+  IconPresent,
   IconReading,
   IconRequest,
+  IconSearch,
   IconStories,
   IconTimeline,
+  IconTorres,
   IconWarning,
   IconWhose,
 } from './icons';
 import { bindLongPress } from './longPress';
 import {
+  ComparePage,
+  GlossaryPage,
   GroupDetail,
+  KnowledgeDetail,
   KnowledgePage,
   NationsPage,
   PeoplePage,
+  PersonDetail,
   PlaceDetail,
   PlacesPage,
+  ReadingDetail,
   ReadingPage,
   StoriesPage,
+  StoryDetail,
+  TimelineDetail,
   TimelinePage,
   type Detail,
 } from './views';
 
-type View = 'nations' | 'places' | 'stories' | 'people' | 'timeline' | 'knowledge' | 'reading' | 'map';
-type Menu = 'whose' | 'request' | null;
+type View = 'nations' | 'places' | 'stories' | 'people' | 'timeline' | 'knowledge' | 'reading' | 'glossary' | 'compare' | 'map';
+type Menu = 'whose' | 'request' | 'search' | 'filter' | 'more' | null;
+interface Crumb {
+  view: View;
+  detail: Detail | null;
+}
 
 export function App() {
   const mapNode = useRef<HTMLDivElement>(null);
@@ -48,22 +69,27 @@ export function App() {
   const [mapReady, setMapReady] = useState(false);
   const [warningOpen, setWarningOpen] = useState(true);
   const [ackOpen, setAckOpen] = useState(true);
-  const [view, setView] = useState<View>('nations');
   const [menu, setMenu] = useState<Menu>(null);
-  const [detail, setDetail] = useState<Detail | null>(null);
+  const [crumbs, setCrumbs] = useState<Crumb[]>([{ view: 'nations', detail: null }]);
   const [era, setEra] = useState<EraStatus>('present');
   const [torresOnly, setTorresOnly] = useState(false);
+  const [query, setQuery] = useState('');
+  const [compareIds, setCompareIds] = useState<string[]>([]);
   const continueRef = useRef<HTMLButtonElement>(null);
+  const current = crumbs[crumbs.length - 1] ?? { view: 'nations' as View, detail: null };
+  const view = current.view;
+  const detail = current.detail;
 
   const markers = useMemo(() => (catalog ? buildMarkers(catalog.content) : []), [catalog]);
+  const hits = useMemo(() => (catalog ? searchCatalog(catalog.content, query) : []), [catalog, query]);
   const warning = catalog?.content.meta.deceased_persons_warning_default ?? '';
   const caveat = catalog?.content.meta.map_caveat ?? '';
   const aiatsis = catalog?.sources.find((source) => source.id === 'aiatsis-map');
+  const filtersActive = era !== 'present' || torresOnly;
 
   selectRef.current = (id) => {
-    setView('places');
-    setDetail({ type: 'place', id });
     setMenu(null);
+    setCrumbs([{ view: 'places', detail: { type: 'place', id } }]);
   };
 
   useEffect(() => bindLongPress(), []);
@@ -110,7 +136,8 @@ export function App() {
     root.dataset.view = view;
     root.dataset.warningOpen = warningOpen ? '1' : '0';
     root.dataset.era = era;
-  }, [catalog, mapReady, markers.length, view, warningOpen, era]);
+    root.dataset.torres = torresOnly ? '1' : '0';
+  }, [catalog, mapReady, markers.length, view, warningOpen, era, torresOnly]);
 
   useEffect(() => {
     if (warningOpen) continueRef.current?.focus();
@@ -120,13 +147,13 @@ export function App() {
     const onPointer = (event: PointerEvent) => {
       const element = event.target instanceof Element ? event.target : null;
       if (!element || !menu) return;
-      if (!element.closest('.popout, #whose-button, #request-button')) setMenu(null);
+      if (!element.closest('.popout, [data-menu-toggle]')) setMenu(null);
     };
     const onKey = (event: KeyboardEvent) => {
       if (event.key !== 'Escape' || warningOpen) return;
       if (menu) setMenu(null);
-      else if (detail) setDetail(null);
-      else setView('map');
+      else if (crumbs.length > 1) setCrumbs((stack) => stack.slice(0, -1));
+      else setCrumbs([{ view: 'map', detail: null }]);
     };
     document.addEventListener('pointerdown', onPointer);
     document.addEventListener('keydown', onKey);
@@ -134,20 +161,30 @@ export function App() {
       document.removeEventListener('pointerdown', onPointer);
       document.removeEventListener('keydown', onKey);
     };
-  }, [menu, detail, warningOpen]);
+  }, [menu, crumbs.length, warningOpen]);
 
   const openSection = (next: View) => {
     setMenu(null);
-    setDetail(null);
-    setView(next);
+    setCrumbs([{ view: next, detail: null }]);
+  };
+
+  const openDetail = (next: Detail, stay?: View) => {
+    setMenu(null);
+    setCrumbs((stack) => [...stack, { view: stay ?? viewFor(next), detail: next }].slice(-8));
   };
 
   const showMap = (placeId?: string) => {
     setMenu(null);
-    setView('map');
-    setDetail(null);
+    setCrumbs([{ view: 'map', detail: null }]);
     const point = markers.find((item) => item.placeId === placeId) ?? markers[0];
     if (point) globeRef.current?.flyTo(point.lon, point.lat);
+  };
+
+  const toggleCompare = (id: string) => {
+    setCompareIds((currentIds) => {
+      if (currentIds.includes(id)) return currentIds.filter((item) => item !== id);
+      return [...currentIds, id].slice(-2);
+    });
   };
 
   return (
@@ -178,20 +215,74 @@ export function App() {
             <IconButton label="Further reading" pressed={view === 'reading'} onClick={() => openSection('reading')}>
               <IconReading />
             </IconButton>
+            <IconButton label="Glossary" pressed={view === 'glossary'} onClick={() => openSection('glossary')}>
+              <IconGlossary />
+            </IconButton>
             <IconButton label="Map" pressed={view === 'map'} onClick={() => showMap()}>
               <IconMap />
-            </IconButton>
-            <IconButton id="whose-button" label="Whose Country" expanded={menu === 'whose'} onClick={() => setMenu(menu === 'whose' ? null : 'whose')}>
-              <IconWhose />
             </IconButton>
             <IconButton label="Deceased persons warning" pressed={warningOpen} onClick={() => setWarningOpen(true)}>
               <IconWarning />
             </IconButton>
-            <IconButton id="request-button" label="Correction or takedown" expanded={menu === 'request'} onClick={() => setMenu(menu === 'request' ? null : 'request')}>
-              <IconRequest />
+            <IconButton id="more-button" menuToggle label="More" expanded={menu === 'more'} onClick={() => setMenu(menu === 'more' ? null : 'more')}>
+              <IconMore />
             </IconButton>
           </div>
         </div>
+        {menu === 'more' ? (
+          <div className="popout icon-row" role="menu" aria-label="More">
+            <IconButton label="Search" onClick={() => setMenu('search')}>
+              <IconSearch />
+            </IconButton>
+            <IconButton label="Filters" pressed={filtersActive} onClick={() => setMenu('filter')}>
+              <IconFilter />
+            </IconButton>
+            <IconButton label="Compare nations" pressed={view === 'compare'} onClick={() => openSection('compare')}>
+              <IconCompare />
+            </IconButton>
+            <IconButton id="whose-button" menuToggle label="Whose Country" onClick={() => setMenu('whose')}>
+              <IconWhose />
+            </IconButton>
+            <IconButton id="request-button" menuToggle label="Correction or takedown" onClick={() => setMenu('request')}>
+              <IconRequest />
+            </IconButton>
+          </div>
+        ) : null}
+        {menu === 'search' ? (
+          <form className="popout" role="search" aria-label="Search" onSubmit={(event) => event.preventDefault()}>
+            <input aria-label="Search" value={query} onChange={(event) => setQuery(event.target.value)} />
+            <div className="stack">
+              {hits.map((hit) => (
+                <button
+                  key={`${hit.kind}-${hit.id}`}
+                  type="button"
+                  className="menu-item"
+                  onClick={() => openDetail({ type: hit.kind, id: hit.id })}
+                >
+                  <span className="row-title">{hit.title}</span>
+                </button>
+              ))}
+            </div>
+          </form>
+        ) : null}
+        {menu === 'filter' ? (
+          <div className="popout" role="dialog" aria-label="Filters">
+            <div className="icon-row">
+              <IconButton label="Present" pressed={era === 'present'} onClick={() => setEra('present')}>
+                <IconPresent />
+              </IconButton>
+              <IconButton label="Historic" pressed={era === 'historic'} onClick={() => setEra('historic')}>
+                <IconHistoric />
+              </IconButton>
+              <IconButton label="All nations" pressed={!torresOnly} onClick={() => setTorresOnly(false)}>
+                <IconAll />
+              </IconButton>
+              <IconButton label="Torres Strait" pressed={torresOnly} onClick={() => setTorresOnly(true)}>
+                <IconTorres />
+              </IconButton>
+            </div>
+          </div>
+        ) : null}
         {menu === 'whose' && aiatsis ? (
           <div className="popout" role="dialog" aria-label="Whose Country">
             <a href={aiatsis.url} target="_blank" rel="noreferrer">
@@ -234,43 +325,38 @@ export function App() {
       {catalog && view !== 'map' ? (
         <ReadingSheet
           label={sheetLabel(view, detail)}
-          layoutKey={`${view}-${detail?.id ?? ''}-${ackOpen}-${menu ?? ''}`}
+          layoutKey={`${view}-${detail?.type ?? ''}-${detail?.id ?? ''}-${crumbs.length}-${ackOpen}-${menu ?? ''}-${era}-${torresOnly}`}
           onClose={() => openSection('map')}
-          onBack={detail ? () => setDetail(null) : undefined}
+          onBack={crumbs.length > 1 ? () => setCrumbs((stack) => stack.slice(0, -1)) : undefined}
         >
-          <p className="boundary sheet-caveat" data-caveat="meta-sheet">
-            {caveat}
-          </p>
-          {view === 'nations' && !detail ? (
-            <NationsPage
-              catalog={catalog}
-              era={era}
-              torresOnly={torresOnly}
-              onEra={setEra}
-              onTorres={setTorresOnly}
-              onOpen={setDetail}
-            />
+          {view === 'nations' && !detail ? <NationsPage catalog={catalog} era={era} torresOnly={torresOnly} onOpen={openDetail} /> : null}
+          {detail?.type === 'group' ? (
+            <GroupDetail catalog={catalog} group={must(catalog.content.groups.find((item) => item.id === detail.id))} onOpen={openDetail} />
           ) : null}
-          {view === 'nations' && detail?.type === 'group' ? (
-            <GroupDetail
-              catalog={catalog}
-              group={must(catalog.content.groups.find((item) => item.id === detail.id))}
-              onOpen={(next) => {
-                setDetail(next);
-                if (next.type === 'place') setView('places');
-                if (next.type === 'story') setView('stories');
-              }}
-            />
+          {view === 'places' && !detail ? <PlacesPage catalog={catalog} torresOnly={torresOnly} onOpen={openDetail} /> : null}
+          {detail?.type === 'place' ? (
+            <PlaceDetail catalog={catalog} place={must(catalog.content.places.find((item) => item.id === detail.id))} onOpen={openDetail} onMap={showMap} />
           ) : null}
-          {view === 'places' && !detail ? <PlacesPage catalog={catalog} onMap={showMap} /> : null}
-          {view === 'places' && detail?.type === 'place' ? (
-            <PlaceDetail catalog={catalog} place={must(catalog.content.places.find((item) => item.id === detail.id))} />
+          {view === 'stories' && !detail ? <StoriesPage catalog={catalog} torresOnly={torresOnly} onOpen={openDetail} /> : null}
+          {detail?.type === 'story' ? (
+            <StoryDetail catalog={catalog} story={must(catalog.content.stories.find((item) => item.id === detail.id))} onOpen={openDetail} />
           ) : null}
-          {view === 'stories' ? <StoriesPage catalog={catalog} /> : null}
-          {view === 'people' ? <PeoplePage catalog={catalog} /> : null}
-          {view === 'timeline' ? <TimelinePage catalog={catalog} /> : null}
-          {view === 'knowledge' ? <KnowledgePage catalog={catalog} /> : null}
-          {view === 'reading' ? <ReadingPage catalog={catalog} /> : null}
+          {view === 'people' && !detail ? <PeoplePage catalog={catalog} torresOnly={torresOnly} onOpen={openDetail} /> : null}
+          {detail?.type === 'person' ? (
+            <PersonDetail catalog={catalog} person={must(catalog.content.people.find((item) => item.id === detail.id))} onOpen={openDetail} />
+          ) : null}
+          {view === 'timeline' && !detail ? <TimelinePage catalog={catalog} torresOnly={torresOnly} onOpen={openDetail} /> : null}
+          {detail?.type === 'timeline' ? (
+            <TimelineDetail catalog={catalog} entry={must(catalog.content.timeline.find((item) => item.id === detail.id))} onOpen={openDetail} />
+          ) : null}
+          {view === 'knowledge' && !detail ? <KnowledgePage catalog={catalog} torresOnly={torresOnly} onOpen={openDetail} /> : null}
+          {detail?.type === 'knowledge' ? (
+            <KnowledgeDetail catalog={catalog} entry={must(catalog.content.knowledge.find((item) => item.id === detail.id))} onOpen={openDetail} />
+          ) : null}
+          {view === 'reading' && !detail ? <ReadingPage catalog={catalog} torresOnly={torresOnly} onOpen={openDetail} /> : null}
+          {detail?.type === 'reading' ? <ReadingDetail catalog={catalog} entry={must(catalog.content.further_reading.find((item) => item.id === detail.id))} /> : null}
+          {view === 'glossary' && !detail ? <GlossaryPage catalog={catalog} onOpen={(next) => openDetail(next, 'glossary')} /> : null}
+          {view === 'compare' && !detail ? <ComparePage catalog={catalog} selected={compareIds} onToggle={toggleCompare} onOpen={openDetail} /> : null}
         </ReadingSheet>
       ) : null}
       {failed ? <p className="gate-card">The knowledge pack did not load.</p> : null}
@@ -280,8 +366,8 @@ export function App() {
             <h2 id="warning-title">Warning</h2>
             <p data-warning="deceased">{warning}</p>
             <p data-caveat="meta-dialog">{caveat}</p>
-            <button ref={continueRef} type="button" className="gate-continue" onClick={() => setWarningOpen(false)}>
-              Continue
+            <button ref={continueRef} type="button" className="icon-button gate-continue" data-tip="Continue" title="Continue" aria-label="Continue" onClick={() => setWarningOpen(false)}>
+              <IconCheck />
             </button>
           </div>
         </div>
@@ -295,15 +381,32 @@ function must<T>(value: T | undefined): T {
   return value;
 }
 
+function viewFor(detail: Detail): View {
+  if (detail.type === 'group') return 'nations';
+  if (detail.type === 'place') return 'places';
+  if (detail.type === 'story') return 'stories';
+  if (detail.type === 'person') return 'people';
+  if (detail.type === 'timeline') return 'timeline';
+  if (detail.type === 'knowledge') return 'knowledge';
+  return 'reading';
+}
+
 function sheetLabel(view: View, detail: Detail | null): string {
   if (detail?.type === 'group') return 'Nation';
   if (detail?.type === 'place') return 'Place';
+  if (detail?.type === 'story') return 'Story';
+  if (detail?.type === 'person') return 'Person';
+  if (detail?.type === 'timeline') return 'Timeline entry';
+  if (detail?.type === 'knowledge') return 'Knowledge';
+  if (detail?.type === 'reading') return 'Further reading';
   if (view === 'nations') return 'Nations';
   if (view === 'places') return 'Places';
   if (view === 'stories') return 'Stories';
   if (view === 'people') return 'People';
   if (view === 'timeline') return 'Timeline';
   if (view === 'knowledge') return 'Knowledge';
+  if (view === 'glossary') return 'Glossary';
+  if (view === 'compare') return 'Compare';
   return 'Further reading';
 }
 
@@ -330,7 +433,9 @@ function RequestForm() {
       </select>
       <input aria-label="Entry" value={entry} onChange={(event) => setEntry(event.target.value)} />
       <textarea aria-label="Message" required value={message} onChange={(event) => setMessage(event.target.value)} />
-      <button type="submit">Open a GitHub issue</button>
+      <IconButton type="submit" label="Open a GitHub issue">
+        <IconRequest />
+      </IconButton>
     </form>
   );
 }

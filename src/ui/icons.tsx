@@ -185,3 +185,55 @@ export function IconClose() {
     </Svg>
   );
 }
+
+export function IconSearch() {
+  return (
+    <Svg>
+      <circle cx="11" cy="11" r="5.5" {...stroke} />
+      <path d="M15.5 15.5L20 20" {...stroke} />
+    </Svg>
+  );
+}
+
+export function IconFilter() {
+  return (
+    <Svg>
+      <path d="M4 6h16M7 12h10M10 18h4" {...stroke} />
+    </Svg>
+  );
+}
+
+export function IconCompare() {
+  return (
+    <Svg>
+      <path d="M4 6h6v12H4zM14 6h6v12h-6z" {...stroke} />
+    </Svg>
+  );
+}
+
+export function IconGlossary() {
+  return (
+    <Svg>
+      <path d="M6 5h8a3 3 0 0 1 3 3v11H9a3 3 0 0 0-3 3V5z" {...stroke} />
+      <path d="M9 9h5M9 13h5" {...stroke} />
+    </Svg>
+  );
+}
+
+export function IconMore() {
+  return (
+    <Svg>
+      <circle cx="6" cy="12" r="1.3" fill="currentColor" />
+      <circle cx="12" cy="12" r="1.3" fill="currentColor" />
+      <circle cx="18" cy="12" r="1.3" fill="currentColor" />
+    </Svg>
+  );
+}
+
+export function IconCheck() {
+  return (
+    <Svg>
+      <path d="M5 12.5l4.2 4.2L19 7.5" {...stroke} />
+    </Svg>
+  );
+}
