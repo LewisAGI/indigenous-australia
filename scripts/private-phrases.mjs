@@ -9,4 +9,6 @@ export const privatePhrases = [
   'Milpirrum',
   'Koiki',
   'Mabo',
+  'Budj Bim',
+  'Bunjil',
 ];

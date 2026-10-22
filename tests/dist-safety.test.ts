@@ -9,6 +9,12 @@ describe('dist cultural safety', () => {
     expect(grepDist('Liru')).toBe('');
   });
 
+  it('greps every dist file for Budj Bim and Bunjil', () => {
+    expect(existsSync('dist/catalog.json'), 'run npm run build before this test').toBe(true);
+    expect(grepDist('Budj Bim')).toBe('');
+    expect(grepDist('Bunjil')).toBe('');
+  });
+
   it('greps every dist file for private notes and names', () => {
     expect(existsSync('dist/catalog.json'), 'run npm run build before this test').toBe(true);
     ['RECOMMEND', 'Check with', 'ICIP', 'Mawalan', 'Milpirrum', 'Koiki', 'Mabo'].forEach((phrase) => {

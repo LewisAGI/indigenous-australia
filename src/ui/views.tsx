@@ -180,7 +180,7 @@ export function StoriesPage({ catalog, torresOnly, onOpen }: { catalog: Catalog;
       {stories.map((story) => (
         <button key={story.id} type="button" className="menu-item" data-entry={story.id} data-publish={story.publish_status} onClick={() => onOpen({ type: 'story', id: story.id })}>
           <span className="row-title">{story.title}</span>
-          <span className="popup-place">{story.nation}</span>
+          {story.publish_status === 'link-only' ? null : <span className="popup-place">{story.nation}</span>}
         </button>
       ))}
     </div>
@@ -195,10 +195,14 @@ export function StoryDetail({ catalog, story, onOpen }: { catalog: Catalog; stor
   return (
     <article data-entry={story.id} data-page="story" data-publish={story.publish_status}>
       <StoryBody catalog={catalog} story={story} />
-      <LinkList title="Nations" items={groups.map((group) => ({ id: group.id, label: group.name, type: 'group' as const }))} onOpen={onOpen} />
-      <LinkList title="Places" items={places.map((place) => ({ id: place.id, label: shortTitle(place.text), type: 'place' as const }))} onOpen={onOpen} />
-      <LinkList title="People" items={people.map((person) => ({ id: person.id, label: personName(person), type: 'person' as const }))} onOpen={onOpen} />
-      <LinkList title="Timeline" items={timeline.map((entry) => ({ id: entry.id, label: String(entry.year), type: 'timeline' as const }))} onOpen={onOpen} />
+      {story.publish_status === 'link-only' ? null : (
+        <>
+          <LinkList title="Nations" items={groups.map((group) => ({ id: group.id, label: group.name, type: 'group' as const }))} onOpen={onOpen} />
+          <LinkList title="Places" items={places.map((place) => ({ id: place.id, label: shortTitle(place.text), type: 'place' as const }))} onOpen={onOpen} />
+          <LinkList title="People" items={people.map((person) => ({ id: person.id, label: personName(person), type: 'person' as const }))} onOpen={onOpen} />
+          <LinkList title="Timeline" items={timeline.map((entry) => ({ id: entry.id, label: String(entry.year), type: 'timeline' as const }))} onOpen={onOpen} />
+        </>
+      )}
     </article>
   );
 }
@@ -215,14 +219,18 @@ function StoryBody({ catalog, story }: { catalog: Catalog; story: Story }) {
       <ExampleFlag entry={story} />
       {needsDeceasedWarning(story.deceased_persons) ? <WarningCopy text={warning} scope="story" /> : null}
       <h2 className="popup-title">{story.title}</h2>
-      <p className="popup-place">{story.nation}</p>
-      <p className="popup-place">{story.place}</p>
-      <LabelBadge label={story.label} />
-      <PermissionBadge status={story.publish_status} />
-      <ProtocolNotes entry={story} />
-      {body ? <p data-summary="">{body}</p> : null}
-      <Notes uncertainty={story.uncertainty} debate={story.debate} sensitivity={story.sensitivity} />
-      <SourceList ids={story.sources} sources={catalog.sources} />
+      {story.publish_status === 'link-only' ? null : (
+        <>
+          <p className="popup-place">{story.nation}</p>
+          <p className="popup-place">{story.place}</p>
+          <LabelBadge label={story.label} />
+          <PermissionBadge status={story.publish_status} />
+          <ProtocolNotes entry={story} />
+          {body ? <p data-summary="">{body}</p> : null}
+          <Notes uncertainty={story.uncertainty} debate={story.debate} sensitivity={story.sensitivity} />
+        </>
+      )}
+      <SourceList ids={story.sources} sources={catalog.sources} compact={story.publish_status === 'link-only'} />
     </>
   );
 }

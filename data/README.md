@@ -40,7 +40,7 @@ The site does not read this pack in the browser. `scripts/publish-catalog.mjs` w
 Left out of the public catalog:
 
 - `meta.deceased_warning_note` (later entries do name people, so the pack sentence that says otherwise is not shown)
-- `public_summary` on link-only stories, and those stories' names (the public title is a neutral label plus the custodians' link)
+- `public_summary` on link-only stories, and those stories' names (the public title is a neutral label plus the custodians' link). The Anangu entry links only to https://uluru.gov.au. Stories whose consent check is still open are replaced by a neutral line and the custodians' own source from this pack.
 - `deceased_note` on every entry (the deceased-persons warning covers it)
 - raw `sensitivity` text (the site keeps only the fixed lines "Do not photograph", "Designs not reproduced", and "Shared with permission of custodians")
 - stories marked secret or sacred, pending review, or with a search-summary label

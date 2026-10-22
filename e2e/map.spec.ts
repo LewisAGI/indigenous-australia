@@ -24,7 +24,8 @@ test.describe('published site', () => {
     await page.getByRole('button', { name: 'Timeline' }).click();
     await expect(page.locator('[data-year="2019"]')).toBeVisible();
     await page.locator('[data-year="2019"] button').click();
-    await expect(page.locator('[data-page="timeline-entry"]')).toContainText(/Budj Bim/);
+    await expect(page.locator('[data-page="timeline-entry"]')).toContainText(/custodians' source/);
+    await expect(page.locator('[data-page="timeline-entry"]')).not.toContainText('Budj Bim');
     await page.getByRole('button', { name: 'People' }).click();
     await expect(page.locator('[data-entry="pp1"]')).toHaveAttribute('data-life', 'living');
     await expect(page.locator('[data-entry="pp2"]')).toHaveAttribute('data-life', 'deceased');
@@ -64,7 +65,10 @@ test.describe('published site', () => {
     await expect(linkOnly).not.toContainText('RECOMMEND');
     await expect(linkOnly).not.toContainText(/woma python/i);
     await expect(linkOnly).not.toContainText(/poisonous brown snake/i);
-    await expect(linkOnly.locator('a').first()).toBeVisible();
+    await expect(linkOnly.locator('a')).toHaveCount(1);
+    await expect(linkOnly.locator('a')).toHaveAttribute('href', 'https://uluru.gov.au');
+    await expect(page.locator('body')).not.toContainText('Budj Bim');
+    await expect(page.locator('body')).not.toContainText('Bunjil');
     await page.getByRole('button', { name: 'Stories' }).click();
     await page.getByRole('button', { name: /desert songline/ }).click();
     await expect(page.locator('[data-page="story"]')).not.toContainText(/pursuit and escape/i);
@@ -100,7 +104,9 @@ test.describe('published site', () => {
     await page.locator('[data-page="compare"] [data-entry="g1"]').click();
     await page.locator('[data-page="compare"] [data-entry="g2"]').click();
     await expect(page.locator('[data-compare="g1"]')).toBeVisible();
-    await expect(page.locator('[data-compare="g2"]')).toContainText(/Budj Bim/);
+    await expect(page.locator('[data-compare="g2"]')).toContainText(/custodians' source/);
+    await expect(page.locator('[data-compare="g2"]')).not.toContainText('Budj Bim');
+    await expect(page.locator('[data-compare="g2"]')).not.toContainText('Bunjil');
 
     await page.getByRole('button', { name: 'Glossary' }).click();
     await page.getByRole('button', { name: 'Tjukurpa' }).click();

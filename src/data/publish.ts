@@ -123,22 +123,35 @@ function publishParsed(content: ContentPack, sources: Source[]): PublicCatalog {
   };
 }
 
+function consentHold(id: string): { title: string; place: string; sources: string[] } | null {
+  if (id === 's1') {
+    return { title: "Anangu Tjukurpa: see the custodians' source", place: 'Uluru', sources: ['uluru-home'] };
+  }
+  if (id === 's2') {
+    return { title: "Gunditjmara: see the custodians' source", place: 'south-western Victoria', sources: ['gmtoac-budj'] };
+  }
+  if (id === 's4') {
+    return { title: "Gariwerd: see the custodians' source", place: 'Gariwerd, Victoria', sources: ['bom-gariwerd'] };
+  }
+  return null;
+}
+
 function stripRetelling(story: Story): Story {
-  if (story.publish_status !== 'link-only') return story;
-  const title =
-    story.id === 's1'
-      ? "Anangu Tjukurpa: see the custodians' source"
-      : story.id === 's9'
-        ? "A desert songline: see the custodians' source"
-        : "Story: see the custodians' source";
+  const hold = consentHold(story.id);
+  if (!hold && story.publish_status !== 'link-only') return story;
+  const title = hold?.title ?? (story.id === 's9' ? "A desert songline: see the custodians' source" : "Story: see the custodians' source");
   const next: Story = {
     ...story,
     title,
+    place: hold?.place ?? story.place,
     public_summary: null,
-    sources: story.sources.filter((id) => id !== 'uluru-kuniya'),
+    publish_status: 'link-only',
+    sources: hold?.sources ?? story.sources.filter((id) => id !== 'uluru-kuniya'),
   };
   delete next.deceased_note;
   delete next.sensitivity;
+  delete next.uncertainty;
+  delete next.debate;
   return next;
 }
 

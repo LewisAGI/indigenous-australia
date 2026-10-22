@@ -5,7 +5,7 @@ A static reading site for a sourced pack about Aboriginal and Torres Strait Isla
 ## Cultural protocol
 
 - Link the [AIATSIS map of Indigenous Australia](https://aiatsis.gov.au/explore/map-indigenous-australia). Do not crop it, overlay it, or turn it into a GIS layer.
-- Link-only stories are a neutral label and the custodians' link. The site does not publish the story name or a retelling.
+- Link-only stories are a neutral label and the custodians' link. The Anangu entry links only to https://uluru.gov.au. Stories and places still waiting on a custodian check are the same: a neutral line and that custodian's own source, with the story name left out.
 - Kata Tjuta and Wollumbin stay places. No story is attached.
 - Anthwerrke (Emily Gap): no photographs of the rock art.
 - Djang'kawu: do not reproduce the designs.

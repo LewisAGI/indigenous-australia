@@ -96,7 +96,7 @@ export function InferenceLine({ value }: { value: string }) {
   );
 }
 
-export function SourceList({ ids, sources }: { ids: string[]; sources: Source[] }) {
+export function SourceList({ ids, sources, compact = false }: { ids: string[]; sources: Source[]; compact?: boolean }) {
   return (
     <ul className="sources">
       {ids.map((id) => {
@@ -108,8 +108,8 @@ export function SourceList({ ids, sources }: { ids: string[]; sources: Source[] 
             <a href={source.url} target="_blank" rel="noreferrer">
               {source.title}
             </a>
-            <span>{source.author_org}</span>
-            <span>Accessed {source.date_accessed}</span>
+            {compact ? null : <span>{source.author_org}</span>}
+            {compact ? null : <span>Accessed {source.date_accessed}</span>}
             {unchecked ? (
               <span className="badge badge-inference" data-source-quality="unchecked">
                 Unchecked

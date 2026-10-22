@@ -21,6 +21,8 @@ const PRIVATE_PHRASES = [
   'Minyipuru',
   'Kungkarangkalpa',
   'Seven Sisters',
+  'Budj Bim',
+  'Bunjil',
 ];
 
 export function publishCatalog(content: unknown, sources: unknown): PublicCatalog {
@@ -35,7 +37,13 @@ export function redactPublicCatalog(catalog: PublicCatalog): PublicCatalog {
   next.content.people.forEach(adjustPerson);
   next.content.stories.forEach(adjustStory);
   next.content.timeline.forEach(adjustTimeline);
-  return walkStrings(next);
+  next.content.places.forEach(adjustPlace);
+  next.content.further_reading.forEach(adjustReading);
+  ensureUluruHome(next);
+  const redacted = walkStrings(next);
+  const cited = citedSourceIds(redacted);
+  redacted.sources = redacted.sources.filter((source) => cited.has(source.id));
+  return redacted;
 }
 
 function adjustSource(source: PublicCatalog['sources'][number]): void {
@@ -46,6 +54,39 @@ function adjustSource(source: PublicCatalog['sources'][number]): void {
   }
   if (source.id === 'nma-songlines-mr') source.title = 'National Museum of Australia media release (2020)';
   if (source.id === 'uluru-kuniya') source.title = "Custodians' source";
+  if (source.id === 'gmtoac-budj') {
+    source.author_org = 'Gunditj Mirring Traditional Owners Aboriginal Corporation';
+    source.title = "Custodians' source";
+  }
+}
+
+function ensureUluruHome(catalog: PublicCatalog): void {
+  if (catalog.sources.some((source) => source.id === 'uluru-home')) return;
+  catalog.sources.push({
+    id: 'uluru-home',
+    title: "Custodians' source",
+    author_org: 'Parks Australia / Anangu Traditional Owners',
+    url: 'https://uluru.gov.au',
+    date_accessed: '2026-10-22',
+    quality: 'Official park site',
+  });
+}
+
+function citedSourceIds(catalog: PublicCatalog): Set<string> {
+  const ids = new Set<string>();
+  const lists = [
+    catalog.content.knowledge,
+    catalog.content.groups,
+    catalog.content.places,
+    catalog.content.stories,
+    catalog.content.people,
+    catalog.content.timeline,
+    catalog.content.further_reading,
+  ];
+  lists.forEach((entries) => {
+    entries.forEach((entry) => entry.sources.forEach((id) => ids.add(id)));
+  });
+  return ids;
 }
 
 function adjustKnowledge(entry: PublicCatalog['content']['knowledge'][number]): void {
@@ -56,11 +97,37 @@ function adjustKnowledge(entry: PublicCatalog['content']['knowledge'][number]): 
 }
 
 function adjustGroup(group: PublicCatalog['content']['groups'][number]): void {
+  if (group.id === 'g2') {
+    group.text = 'Gunditjmara - Traditional Owners in south-western Victoria; represented by Gunditj Mirring Traditional Owners Aboriginal Corporation.';
+    group.sources = ['gmtoac-budj', 'austlang-s20'];
+  }
   if (group.id === 'g22') group.text = 'Martu (Western Desert, WA): custodians of a Western Desert songline.';
   if (group.id === 'g23') group.text = 'Ngaanyatjarra (Western Desert): songline custodians.';
 }
 
+function adjustPlace(place: PublicCatalog['content']['places'][number]): void {
+  if (place.id === 'p2') {
+    place.text = 'Gunditjmara country, see the custodians\' source';
+    place.sources = ['gmtoac-budj'];
+  }
+  if (place.id === 'p6') {
+    place.text = 'Gariwerd country, see the custodians\' source';
+    place.sources = ['bom-gariwerd'];
+  }
+}
+
+function adjustReading(entry: PublicCatalog['content']['further_reading'][number]): void {
+  if (entry.id === 'fr5') {
+    entry.text = 'Gunditjmara country, see the custodians\' source';
+    entry.sources = ['gmtoac-budj'];
+  }
+}
+
 function adjustTimeline(entry: PublicCatalog['content']['timeline'][number]): void {
+  if (entry.id === 'tl14') {
+    entry.text = 'Gunditjmara country, see the custodians\' source';
+    entry.sources = ['gmtoac-budj'];
+  }
   if (entry.id === 'tl15') entry.text = '2020 - NMA media release on a songlines touring exhibition.';
 }
 

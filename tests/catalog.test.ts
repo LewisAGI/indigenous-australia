@@ -67,15 +67,22 @@ describe('pack counts and the public catalog', () => {
     expect(story('s9').public_summary).toBeNull();
     expect(story('s1').title).toBe("Anangu Tjukurpa: see the custodians' source");
     expect(story('s9').title).toBe("A desert songline: see the custodians' source");
-    expect(story('s1').sources).toEqual(['uluru-stories']);
+    expect(story('s1').sources).toEqual(['uluru-home']);
+    expect(catalog.sources.find((source) => source.id === 'uluru-home')?.url).toBe('https://uluru.gov.au');
     expect(story('s1').publish_status).toBe('link-only');
+    expect(story('s2').title).toBe("Gunditjmara: see the custodians' source");
+    expect(story('s2').public_summary).toBeNull();
+    expect(story('s2').sources).toEqual(['gmtoac-budj']);
+    expect(story('s4').title).toBe("Gariwerd: see the custodians' source");
+    expect(story('s4').public_summary).toBeNull();
+    expect(story('s4').sources).toEqual(['bom-gariwerd']);
     expect(blob).not.toContain('deceased_note');
-    ['Kuniya', 'Liru', 'Seven Sisters', 'Minyipuru', 'Kungkarangkalpa', 'RECOMMEND', 'Check with', 'ICIP', 'Mawalan', 'Milpirrum', 'Koiki', 'Mabo'].forEach(
+    ['Kuniya', 'Liru', 'Seven Sisters', 'Minyipuru', 'Kungkarangkalpa', 'RECOMMEND', 'Check with', 'ICIP', 'Mawalan', 'Milpirrum', 'Koiki', 'Mabo', 'Budj Bim', 'Bunjil'].forEach(
       (phrase) => expect(blob, phrase).not.toContain(phrase),
     );
     const protocols = collectSensitivity(catalog);
     protocols.forEach((line) => expect(isPublicProtocolLine(line)).toBe(true));
-    expect(story('s4').publish_status).toBe('summary-with-credit');
+    expect(story('s4').publish_status).toBe('link-only');
     expect(story('s5').publish_status).toBe('summary-with-credit');
     expect(story('s5').place).not.toMatch(/search-summary/i);
     expect(catalog.content.groups.map((group) => group.id)).not.toEqual(expect.arrayContaining(['g19', 'g20']));
@@ -131,7 +138,8 @@ describe('reading tools', () => {
     const anangu = catalog.content.groups.find((group) => group.id === 'g1');
     const gunditjmara = catalog.content.groups.find((group) => group.id === 'g2');
     expect(anangu && nationSnapshot(anangu, catalog.content).stories).toContain("Anangu Tjukurpa: see the custodians' source");
-    expect(gunditjmara && nationSnapshot(gunditjmara, catalog.content).places.some((title) => /Budj Bim/.test(title))).toBe(true);
+    expect(gunditjmara && nationSnapshot(gunditjmara, catalog.content).stories).toContain("Gunditjmara: see the custodians' source");
+    expect(gunditjmara && nationSnapshot(gunditjmara, catalog.content).places.some((title) => /Gunditjmara country/.test(title))).toBe(true);
     expect(filterGroups(catalog.content.groups, 'historic', false)).toEqual([]);
     expect(filterGroups(catalog.content.groups, 'present', true).every((group) => group.torres_strait)).toBe(true);
   });
