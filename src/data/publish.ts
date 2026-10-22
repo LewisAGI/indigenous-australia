@@ -71,7 +71,13 @@ export function isPublicRecord(entry: Publishable, sources: Source[]): boolean {
   return true;
 }
 
+/** No custodian source in the pack yet, so the entry stays out of the site. */
+function isAwaitingCustodianSource(id: string): boolean {
+  return id === 's4' || id === 'p6';
+}
+
 export function isPublishedStory(story: Story): boolean {
+  if (isAwaitingCustodianSource(story.id)) return false;
   if (story.exclude_from_build) return false;
   if (story.secret_sacred) return false;
   if (story.publish_status === 'summary-pending-review') return false;
@@ -101,7 +107,8 @@ function publishParsed(content: ContentPack, sources: Source[]): PublicCatalog {
     map_caveat: content.meta.map_caveat,
     deceased_persons_warning_default: content.meta.deceased_persons_warning_default,
   };
-  const keep = <T extends Publishable>(entries: T[]): T[] => entries.filter((entry) => isPublicRecord(entry, sources)).map((entry) => scrubEntry(entry));
+  const keep = <T extends Publishable & { id: string }>(entries: T[]): T[] =>
+    entries.filter((entry) => !isAwaitingCustodianSource(entry.id) && isPublicRecord(entry, sources)).map((entry) => scrubEntry(entry));
   const stories = content.stories
     .filter((story) => isPublishedStory(story) && isPublicRecord(story, sources))
     .map((story) => scrubEntry(story))
@@ -129,9 +136,6 @@ function consentHold(id: string): { title: string; place: string; sources: strin
   }
   if (id === 's2') {
     return { title: "Gunditjmara: see the custodians' source", place: 'south-western Victoria', sources: ['gmtoac-budj'] };
-  }
-  if (id === 's4') {
-    return { title: "Gariwerd: see the custodians' source", place: 'Gariwerd, Victoria', sources: ['bom-gariwerd'] };
   }
   return null;
 }

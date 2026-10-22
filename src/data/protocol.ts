@@ -2,7 +2,8 @@
 export const PUBLIC_PROTOCOL_LINES = [
   'Do not photograph',
   'Designs not reproduced',
-  'Shared with permission of custodians',
+  'Publicly shared by custodians',
+  'Published with the Marika family for education',
 ] as const;
 
 export type PublicProtocolLine = (typeof PUBLIC_PROTOCOL_LINES)[number];
@@ -28,9 +29,8 @@ export function toPublicSensitivity(raw?: string): string | undefined {
   const lines: PublicProtocolLine[] = [];
   if (/photograph|rock-art images/i.test(raw)) lines.push('Do not photograph');
   if (/do not (copy|reproduce)|not reproduce designs/i.test(raw)) lines.push('Designs not reproduced');
-  if (/publicly shared|community-published|published for education/i.test(raw)) {
-    lines.push('Shared with permission of custodians');
-  }
+  if (/published for education with the marika family/i.test(raw)) lines.push('Published with the Marika family for education');
+  else if (/publicly shared|community-published/i.test(raw)) lines.push('Publicly shared by custodians');
   const unique = PUBLIC_PROTOCOL_LINES.filter((line) => lines.includes(line));
   return unique.length > 0 ? unique.join('\n') : undefined;
 }

@@ -73,24 +73,31 @@ describe('pack counts and the public catalog', () => {
     expect(story('s2').title).toBe("Gunditjmara: see the custodians' source");
     expect(story('s2').public_summary).toBeNull();
     expect(story('s2').sources).toEqual(['gmtoac-budj']);
-    expect(story('s4').title).toBe("Gariwerd: see the custodians' source");
-    expect(story('s4').public_summary).toBeNull();
-    expect(story('s4').sources).toEqual(['bom-gariwerd']);
+    expect(catalog.content.stories.some((item) => item.id === 's4')).toBe(false);
+    expect(catalog.content.places.some((item) => item.id === 'p6')).toBe(false);
+    expect(catalog.content.stories.every((item) => !item.sources.includes('bom-gariwerd'))).toBe(true);
+    expect(blob).not.toContain('verified: Parks Victoria page read');
+    expect(blob).toContain('Gail Mabo');
+    expect(catalog.content.people.find((person) => person.id === 'pp1')?.text).toContain('Gail Mabo');
+    expect(story('s3').nation).toContain('as told by Gail Mabo');
+    expect(story('s3').sensitivity).toBe('Publicly shared by custodians');
+    expect(story('s5').sensitivity).toBe('Publicly shared by custodians');
+    expect(story('s8').sensitivity).toContain('Published with the Marika family for education');
+    expect(blob).not.toContain('with permission');
     expect(blob).not.toContain('deceased_note');
-    ['Kuniya', 'Liru', 'Seven Sisters', 'Minyipuru', 'Kungkarangkalpa', 'RECOMMEND', 'Check with', 'ICIP', 'Mawalan', 'Milpirrum', 'Koiki', 'Mabo', 'Budj Bim', 'Bunjil'].forEach(
+    ['Kuniya', 'Liru', 'Seven Sisters', 'Minyipuru', 'Kungkarangkalpa', 'RECOMMEND', 'Check with', 'ICIP', 'Mawalan', 'Milpirrum', 'Koiki', 'Eddie Mabo', 'Benny Mabo', 'Budj Bim', 'Bunjil'].forEach(
       (phrase) => expect(blob, phrase).not.toContain(phrase),
     );
     const protocols = collectSensitivity(catalog);
     protocols.forEach((line) => expect(isPublicProtocolLine(line)).toBe(true));
-    expect(story('s4').publish_status).toBe('link-only');
     expect(story('s5').publish_status).toBe('summary-with-credit');
     expect(story('s5').place).not.toMatch(/search-summary/i);
     expect(catalog.content.groups.map((group) => group.id)).not.toEqual(expect.arrayContaining(['g19', 'g20']));
     expect(catalog.content.knowledge.map((entry) => entry.id)).not.toEqual(expect.arrayContaining(['k25', 'k28', 'k32']));
     expect(catalog.content.groups).toHaveLength(23);
     expect(catalog.content.knowledge).toHaveLength(38);
-    expect(catalog.content.stories).toHaveLength(9);
-    expect(catalog.content.places).toHaveLength(20);
+    expect(catalog.content.stories).toHaveLength(8);
+    expect(catalog.content.places).toHaveLength(19);
   });
 
   it('matches the catalog written for the build', () => {

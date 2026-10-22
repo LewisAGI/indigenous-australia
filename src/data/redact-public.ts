@@ -6,13 +6,11 @@ import { toPublicCatalog, type PublicCatalog } from './publish.ts';
  */
 const PRIVATE_PHRASES = [
   'Eddie Koiki Mabo',
-  'Gail Mabo',
   'Benny Mabo',
   'Eddie Mabo',
   'Mawalan',
   'Milpirrum',
   'Koiki',
-  'Mabo',
   'Kuniya',
   'Liru',
   'RECOMMEND',
@@ -47,11 +45,7 @@ export function redactPublicCatalog(catalog: PublicCatalog): PublicCatalog {
 }
 
 function adjustSource(source: PublicCatalog['sources'][number]): void {
-  if (source.id === 'agsa-mabo') source.title = 'Tarnanthi 2021';
-  if (source.id === 'sbs-mabo') {
-    source.title = 'Taught his daughter about the stars';
-    source.quality = 'Indigenous broadcaster';
-  }
+  if (source.id === 'sbs-mabo') source.title = 'Taught his daughter Gail about the stars';
   if (source.id === 'nma-songlines-mr') source.title = 'National Museum of Australia media release (2020)';
   if (source.id === 'uluru-kuniya') source.title = "Custodians' source";
   if (source.id === 'gmtoac-budj') {
@@ -110,10 +104,6 @@ function adjustPlace(place: PublicCatalog['content']['places'][number]): void {
     place.text = 'Gunditjmara country, see the custodians\' source';
     place.sources = ['gmtoac-budj'];
   }
-  if (place.id === 'p6') {
-    place.text = 'Gariwerd country, see the custodians\' source';
-    place.sources = ['bom-gariwerd'];
-  }
 }
 
 function adjustReading(entry: PublicCatalog['content']['further_reading'][number]): void {
@@ -132,9 +122,6 @@ function adjustTimeline(entry: PublicCatalog['content']['timeline'][number]): vo
 }
 
 function adjustPerson(person: PublicCatalog['content']['people'][number]): void {
-  if (person.id === 'pp1') {
-    person.text = 'Piadram clan, Mer - artist and knowledge holder who shares the Tagai story.';
-  }
   if (person.id === 'pp2') {
     person.text = 'Teacher of Tagai - taught Tagai to his daughter; a star was named for him in 2015 (per SBS).';
   }
@@ -144,7 +131,6 @@ function adjustPerson(person: PublicCatalog['content']['people'][number]): void 
 }
 
 function adjustStory(story: PublicCatalog['content']['stories'][number]): void {
-  if (story.id === 's3') story.nation = 'Torres Strait Islanders (Piadram clan, Mer)';
   if (story.id === 's6' && story.public_summary) {
     story.public_summary = story.public_summary.replace(' (Seven Sisters Dreaming, Pleiades)', ' (Pleiades)');
   }
@@ -178,7 +164,6 @@ function redactString(value: string): string {
   });
   if (next === value) return value;
   return next
-    .replace(/\(\s*as told by\s*,?\s*/gi, '(')
     .replace(/\(\s*\)/g, '')
     .replace(/\s+,/g, ',')
     .replace(/,\s*,/g, ',')

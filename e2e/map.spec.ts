@@ -28,6 +28,7 @@ test.describe('published site', () => {
     await expect(page.locator('[data-page="timeline-entry"]')).not.toContainText('Budj Bim');
     await page.getByRole('button', { name: 'People' }).click();
     await expect(page.locator('[data-entry="pp1"]')).toHaveAttribute('data-life', 'living');
+    await expect(page.locator('[data-entry="pp1"]')).toContainText('Gail Mabo');
     await expect(page.locator('[data-entry="pp2"]')).toHaveAttribute('data-life', 'deceased');
     await page.locator('[data-entry="pp2"]').click();
     await expect(page.locator('[data-deceased-warning="person"]')).toBeVisible();

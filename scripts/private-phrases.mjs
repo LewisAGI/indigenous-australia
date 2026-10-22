@@ -8,7 +8,8 @@ export const privatePhrases = [
   'Mawalan',
   'Milpirrum',
   'Koiki',
-  'Mabo',
+  'Eddie Mabo',
+  'Benny Mabo',
   'Budj Bim',
   'Bunjil',
 ];

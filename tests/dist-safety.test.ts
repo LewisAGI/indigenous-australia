@@ -17,9 +17,14 @@ describe('dist cultural safety', () => {
 
   it('greps every dist file for private notes and names', () => {
     expect(existsSync('dist/catalog.json'), 'run npm run build before this test').toBe(true);
-    ['RECOMMEND', 'Check with', 'ICIP', 'Mawalan', 'Milpirrum', 'Koiki', 'Mabo'].forEach((phrase) => {
+    ['RECOMMEND', 'Check with', 'ICIP', 'Mawalan', 'Milpirrum', 'Koiki', 'Eddie Mabo', 'Benny Mabo'].forEach((phrase) => {
       expect(grepDist(phrase), phrase).toBe('');
     });
+  });
+
+  it('greps every dist file and finds Gail Mabo', () => {
+    expect(existsSync('dist/catalog.json'), 'run npm run build before this test').toBe(true);
+    expect(grepDist('Gail Mabo')).toContain('Gail Mabo');
   });
 });
 

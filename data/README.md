@@ -42,7 +42,8 @@ Left out of the public catalog:
 - `meta.deceased_warning_note` (later entries do name people, so the pack sentence that says otherwise is not shown)
 - `public_summary` on link-only stories, and those stories' names (the public title is a neutral label plus the custodians' link). The Anangu entry links only to https://uluru.gov.au. Stories whose consent check is still open are replaced by a neutral line and the custodians' own source from this pack.
 - `deceased_note` on every entry (the deceased-persons warning covers it)
-- raw `sensitivity` text (the site keeps only the fixed lines "Do not photograph", "Designs not reproduced", and "Shared with permission of custodians")
+- raw `sensitivity` text (the site keeps only fixed lines such as "Do not photograph", "Designs not reproduced", "Publicly shared by custodians", and "Published with the Marika family for education")
+- the Bunjil story and place, until the pack has a Barengi Gadjin or Eastern Maar source
 - stories marked secret or sacred, pending review, or with a search-summary label
 - any entry whose sources are all unchecked (a search summary or a search-result page extract)
 - knowledge whose sensitivity begins `RESTRICTED -` or says not to publish
