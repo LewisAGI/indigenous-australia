@@ -1,0 +1,356 @@
+:root {
+  color-scheme: dark;
+  --glass: rgba(14, 18, 26, 0.92);
+  --glass-line: rgba(255, 255, 255, 0.16);
+  --ink: #f4f7fb;
+  --muted: #d5dde6;
+  --ochre: #e2a04a;
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  inset: 0;
+  background: #070b12;
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+#app { position: fixed; inset: 0; overflow: hidden; }
+#map { position: absolute; inset: 0; }
+
+#map .maplibregl-ctrl-bottom-right {
+  bottom: calc(108px + env(safe-area-inset-bottom));
+  right: 8px;
+}
+
+#map .maplibregl-ctrl.maplibregl-ctrl-attrib,
+#map .maplibregl-ctrl.maplibregl-ctrl-attrib.maplibregl-compact,
+#map .maplibregl-ctrl.maplibregl-ctrl-attrib.maplibregl-compact-show {
+  font-size: 11px;
+  color: var(--ink);
+  background: var(--glass);
+  border-radius: 8px;
+}
+
+#map .maplibregl-ctrl.maplibregl-ctrl-attrib a,
+#map .maplibregl-ctrl.maplibregl-ctrl-attrib button,
+#map .maplibregl-ctrl.maplibregl-ctrl-attrib summary { color: var(--ink); }
+
+.chrome {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: calc(12px + env(safe-area-inset-top)) 12px 0;
+  pointer-events: none;
+}
+
+.chrome-row, .tools, .ack, .popout, .icon-button, .zoom, .caveat, .event-sheet, .gate { pointer-events: auto; }
+
+.chrome-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+}
+
+.wordmark {
+  margin: 0;
+  flex: 1 0 180px;
+  color: #c5ccd4;
+  font: 500 18px/1.15 "Iowan Old Style", Palatino, Georgia, serif;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85);
+}
+
+.tools { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.icon-button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  cursor: pointer;
+  color: var(--ink);
+  background: rgba(14, 18, 26, 0.72);
+  border: 1px solid var(--glass-line);
+  box-shadow: var(--shadow);
+}
+
+.icon-button svg { width: 22px; height: 22px; display: block; }
+.icon-button[aria-pressed="true"] { background: rgba(255, 255, 255, 0.16); }
+.icon-button:focus-visible, .menu-item:focus-visible, .gate-continue:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+.zoom {
+  position: absolute;
+  z-index: 5;
+  right: calc(12px + env(safe-area-inset-right));
+  top: 46%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.zoom.is-hidden { visibility: hidden; pointer-events: none; }
+
+.ack, .popout, .caveat, .event-sheet, .gate-card {
+  background: var(--glass);
+  color: var(--ink);
+  border: 1px solid var(--glass-line);
+  box-shadow: var(--shadow);
+}
+
+.ack {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin-top: 8px;
+  max-width: 720px;
+  padding: 8px 8px 8px 12px;
+  border-radius: 16px;
+}
+
+.ack p { margin: 0; font-size: 14px; line-height: 1.4; }
+
+.popout {
+  margin-top: 8px;
+  width: min(420px, calc(100vw - 24px));
+  max-height: min(52vh, 440px);
+  overflow: auto;
+  padding: 12px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.popout a { color: var(--ink); }
+.request-form select, .request-form input, .request-form textarea {
+  width: 100%;
+  font: 16px/1.4 system-ui, sans-serif;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 8px 0;
+}
+.request-form textarea { min-height: 88px; resize: vertical; }
+.request-form button {
+  align-self: flex-start;
+  min-height: 44px;
+  padding: 0 12px;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--glass-line);
+  border-radius: 8px;
+}
+
+.caveat {
+  position: absolute;
+  z-index: 5;
+  left: 12px;
+  right: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 14px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.caveat a { color: var(--ink); }
+
+.event-sheet {
+  position: absolute;
+  z-index: 6;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  padding: 8px 12px 12px;
+  font: 14px/1.45 system-ui, sans-serif;
+}
+
+.sheet-tools { display: flex; justify-content: space-between; align-items: center; }
+.sheet-body { overflow: auto; min-height: 0; overscroll-behavior: contain; }
+.sheet-caveat { margin-top: 0; }
+
+.page { display: block; }
+.stack { display: flex; flex-direction: column; gap: 12px; }
+.timeline { margin: 0; padding: 0 0 0 18px; display: flex; flex-direction: column; gap: 14px; }
+.icon-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 8px; }
+
+.menu-item {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.menu-item[aria-current="true"], .menu-item:hover { background: rgba(255, 255, 255, 0.08); }
+.row-title { font-weight: 650; }
+
+.popup-title {
+  margin: 0 0 6px;
+  font: 600 18px/1.25 "Iowan Old Style", Palatino, Georgia, serif;
+}
+.popup-place, .popup-note { margin: 4px 0; color: var(--muted); font-size: 13px; }
+.boundary { margin: 8px 0; font-size: 13px; }
+
+.badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  margin: 0 6px 6px 0;
+  padding: 2px 6px;
+  border: 1px solid var(--glass-line);
+  border-radius: 4px;
+  font-size: 11px;
+}
+.badge-name { font-weight: 750; letter-spacing: 0.04em; text-transform: uppercase; }
+.badge-note { color: var(--muted); font-size: 12px; text-transform: none; letter-spacing: 0; }
+.badge-evidence { color: #d5e6c8; }
+.badge-inference { color: #f0d7a2; }
+.badge-abstract-only { color: #c9d4e4; }
+.badge-permission { font-weight: 700; }
+
+.example-flag {
+  margin: 0 0 6px;
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #f0d7a2;
+}
+.protocol, .warning-copy { margin: 0 0 8px; }
+.warning-copy { font-weight: 650; }
+
+.sources { margin: 8px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: 12px; }
+.sources li { margin: 0 0 6px; display: flex; flex-direction: column; gap: 2px; }
+.sources a { color: var(--ink); }
+
+.pin {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.pin .halo {
+  position: absolute;
+  inset: 6px;
+  border-radius: 50%;
+  background: rgba(226, 160, 74, 0.28);
+  border: 1px dashed rgba(244, 239, 230, 0.75);
+}
+.pin .dot {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--ochre);
+  border: 2px solid #f7f4ee;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.72);
+}
+.pin.is-selected .dot { outline: 2px solid var(--ink); outline-offset: 3px; }
+.pin[data-status="historic"] .dot { background: #8fb8c9; }
+
+[data-tip] { position: relative; }
+[data-tip].is-long-tip::after,
+[data-tip]:focus-visible::after {
+  content: attr(data-tip);
+  position: absolute;
+  z-index: 8;
+  left: 50%;
+  bottom: calc(100% + 6px);
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #12161c;
+  font: 600 11px/1.2 system-ui, sans-serif;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.zoom [data-tip].is-long-tip::after,
+.zoom [data-tip]:focus-visible::after {
+  left: auto;
+  right: calc(100% + 8px);
+  bottom: 50%;
+  transform: translateY(50%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  [data-tip]:hover::after {
+    content: attr(data-tip);
+    position: absolute;
+    z-index: 8;
+    left: 50%;
+    bottom: calc(100% + 6px);
+    transform: translateX(-50%);
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: var(--ink);
+    color: #12161c;
+    font: 600 11px/1.2 system-ui, sans-serif;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .zoom [data-tip]:hover::after {
+    left: auto;
+    right: calc(100% + 8px);
+    bottom: 50%;
+    transform: translateY(50%);
+  }
+}
+
+.gate {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(5, 8, 12, 0.72);
+}
+.gate-card {
+  width: min(560px, 100%);
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+  padding: 16px;
+  border-radius: 16px;
+}
+.gate-card h2 { margin: 0 0 8px; font: 600 22px/1.2 "Iowan Old Style", Palatino, Georgia, serif; }
+.gate-continue {
+  min-height: 44px;
+  margin-top: 8px;
+  padding: 0 16px;
+  color: #12161c;
+  background: var(--ink);
+  border: 0;
+  border-radius: 8px;
+  font-weight: 700;
+}
