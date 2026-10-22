@@ -1,0 +1,5 @@
+- Acknowledgement of Country banner + deceased-persons warning toggle
+- "Learn whose Country you're on" link-out to AIATSIS map / Native Title Tribunal (no redrawn boundaries)
+- Language revival spotlight (NILS3 stats, AustLang links), audio only with community consent
+- Per-story permission/credit badge (link-only vs summary-with-credit)
+- Community contribution / takedown request form

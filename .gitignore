@@ -1,0 +1,8 @@
+node_modules
+dist
+test-results
+playwright-report
+.wrangler
+*.log
+.DS_Store
+public/catalog.json

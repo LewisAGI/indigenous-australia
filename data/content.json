@@ -1,0 +1,1414 @@
+{
+ "meta": {
+  "pack": "indigenous-australia",
+  "version": 1,
+  "created": "2026-10-22",
+  "map_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country.",
+  "deceased_persons_warning_default": "Aboriginal and Torres Strait Islander visitors are advised that this site may contain images, voices or names of people who have died.",
+  "deceased_warning_note": "Warning text is a standard convention (inference); no deceased persons are named in this pack."
+ },
+ "knowledge": [
+  {
+   "id": "k1",
+   "text": "The AIATSIS map (created 1996 by David R Horton for the Encyclopaedia of Aboriginal Australia) attempts to represent language, social or nation groups using published sources from the 18th century to 1994; it shows general locations of larger groupings, borders are deliberately blurred, some information is contested, and it is not suitable for native title or land claims.",
+   "sources": [
+    "aiatsis-map"
+   ],
+   "label": "evidence"
+  },
+  {
+   "id": "k2",
+   "text": "The AIATSIS map may not be cropped, overlaid, or have geospatial mapping added; reproduction requires Aboriginal Studies Press permission and AIATSIS does not provide GIS data. Sites should LINK to it rather than embed or redraw it.",
+   "sources": [
+    "aiatsis-perm"
+   ],
+   "label": "evidence",
+   "sensitivity": "licensing"
+  },
+  {
+   "id": "k3",
+   "text": "At colonisation there were more than 250 Indigenous languages including about 800 dialects; NILS3 (2018-19) found 123 still spoken, 109 endangered and 14 strong, with at least 31 being reawakened.",
+   "sources": [
+    "aiatsis-langs",
+    "aiatsis-nils3"
+   ],
+   "label": "evidence (figures via AIATSIS summary; verify exact wording on page before publishing)"
+  },
+  {
+   "id": "k4",
+   "text": "Anangu state that 'Dreamtime'/'Dreaming' suggests beliefs are unreal; Tjukurpa is not a dream and there is no word 'Dreamtime' in Anangu languages. Tjukurpa is the foundation of law, religion and morality.",
+   "sources": [
+    "uluru-tjukurpa"
+   ],
+   "label": "evidence"
+  },
+  {
+   "id": "k5",
+   "text": "Some Tjukurpa knowledge is passed only to people who have inherited the right to it; sacred objects, some designs and sounds (e.g. bullroarer) are restricted, sometimes by gender.",
+   "sources": [
+    "uluru-stories",
+    "uluru-tjukurpa"
+   ],
+   "label": "evidence",
+   "sensitivity": "restricted-knowledge-exists; content excluded"
+  },
+  {
+   "id": "k6",
+   "text": "AustLang assigns each language variety a stable alphanumeric code; the letter denotes a region (P = contact languages, T = Tasmanian), from Arthur Capell's 1963 scheme.",
+   "sources": [
+    "austlang-help"
+   ],
+   "label": "evidence"
+  },
+  {
+   "id": "k7",
+   "text": "Pitjantjatjara (C6) and Yankunytjatjara (C4) are dialects of the Western Desert language (A80); many Pitjantjatjara people live with Yankunytjatjara at Amata, Ernabella, Fregon, Mimili and Indulkana.",
+   "sources": [
+    "austlang-c6",
+    "austlang-c4"
+   ],
+   "label": "evidence"
+  },
+  {
+   "id": "k8",
+   "text": "Torres Strait Islanders are united by Tagai stories, which centre on the stars and identify them as sea people.",
+   "sources": [
+    "qcaa-tagai"
+   ],
+   "label": "evidence"
+  },
+  {
+   "id": "k9",
+   "text": "'Zenadth Kes' is a name used instead of 'Torres Strait', created by Elder and linguist Adhi Ephraim Bani from traditional names of the four winds.",
+   "sources": [
+    "austlang-y3"
+   ],
+   "label": "evidence"
+  },
+  {
+   "id": "k10",
+   "text": "Torres Strait Creole (P2) is shared across Zenadth Kes; Meriam Mir (Y3, eastern; a Papuan language) and Kala Lagaw Ya (Y1, western) are traditional languages under community-led revitalisation.",
+   "sources": [
+    "austlang-y3"
+   ],
+   "label": "evidence"
+  },
+  {
+   "id": "k11",
+   "text": "TSRA supports 17 inhabited islands of the Torres Strait plus Bamaga and Seisia on the Northern Peninsula Area.",
+   "sources": [
+    "tsra"
+   ],
+   "label": "evidence"
+  },
+  {
+   "id": "k12",
+   "text": "Erubam Le (Erub/Darnley Island) calendar Erub Kerker has 4 main seasons; Tagai's position signals voyaging, turtle mating, garden times, wind change and monsoon. Produced 2021 with Elders, Erubam Rangers and TSRA TEK team.",
+   "sources": [
+    "bom-erub-island"
+   ],
+   "label": "evidence",
+   "nation": "Erubam Le"
+  },
+  {
+   "id": "k13",
+   "text": "Masig (Yorke Island) seasonal calendar produced 2018 with Masigalgal RNTBC and Masigalgal Rangers; Masig is a small low-lying coral cay in the Central Islands about 160 km north-east of Thursday Island.",
+   "sources": [
+    "bom-masig"
+   ],
+   "label": "evidence",
+   "nation": "Masigalgal"
+  },
+  {
+   "id": "k14",
+   "text": "Nyoongar seasonal calendar has 6 seasons: Birak, Bunuru, Djeran, Makuru, Djilba and Kambarang.",
+   "sources": [
+    "bom-nyoongar"
+   ],
+   "label": "evidence",
+   "nation": "Noongar"
+  },
+  {
+   "id": "k15",
+   "text": "Yawuru calendar (Broome, WA) has 6 seasons, e.g. Man-gala, the wet season (Dec-Mar).",
+   "sources": [
+    "bom-yawuru"
+   ],
+   "label": "evidence",
+   "nation": "Yawuru"
+  },
+  {
+   "id": "k16",
+   "text": "Jawoyn calendar (Katherine region, NT) has 5 seasons defined by weather and environment.",
+   "sources": [
+    "bom-jawoyn"
+   ],
+   "label": "evidence",
+   "nation": "Jawoyn"
+  },
+  {
+   "id": "k17",
+   "text": "Maung calendar (Goulburn Islands, off Arnhem Land) explains plant and animal indicators of seasons.",
+   "sources": [
+    "bom-maung"
+   ],
+   "label": "evidence",
+   "nation": "Maung"
+  },
+  {
+   "id": "k18",
+   "text": "Tiwi calendar recognises 3 major and 13 minor seasons.",
+   "sources": [
+    "bom-tiwi"
+   ],
+   "label": "evidence",
+   "nation": "Tiwi"
+  },
+  {
+   "id": "k19",
+   "text": "Yanyuwa calendar (Gulf of Carpentaria) has 5 seasons, starting with Wunthurru, the early storm season.",
+   "sources": [
+    "bom-yanyuwa"
+   ],
+   "label": "evidence",
+   "nation": "Yanyuwa"
+  },
+  {
+   "id": "k20",
+   "text": "Miriwoong calendar (Kununurra, WA) has 3 major seasons: hot, wet and cold.",
+   "sources": [
+    "bom-miriwoong"
+   ],
+   "label": "evidence",
+   "nation": "Miriwoong"
+  },
+  {
+   "id": "k21",
+   "text": "Kaurna calendar (Adelaide Plains) recognises 4 weather periods plus seasonal-indicator winds; mapping to European months is approximate.",
+   "sources": [
+    "bom-kaurna"
+   ],
+   "label": "evidence",
+   "nation": "Kaurna"
+  },
+  {
+   "id": "k22",
+   "text": "Brambuk seasonal cycle of Gariwerd (Grampians, Vic) recognises 6 seasons.",
+   "sources": [
+    "bom-gariwerd"
+   ],
+   "label": "evidence",
+   "nation": "Djab Wurrung / Jardwadjali (inference: nations of Gariwerd; not named in cited snippet)"
+  },
+  {
+   "id": "k23",
+   "text": "D'harawal Country and language area extends from the southern shores of Port Jackson toward the Shoalhaven River; BOM publishes a D'harawal seasonal calendar.",
+   "sources": [
+    "bom-dharawal"
+   ],
+   "label": "evidence",
+   "nation": "D'harawal"
+  },
+  {
+   "id": "k24",
+   "text": "Banbai calendar relates to the 650 ha Wattleridge Indigenous Protected Area, NSW.",
+   "sources": [
+    "bom-banbai"
+   ],
+   "label": "evidence",
+   "nation": "Banbai"
+  },
+  {
+   "id": "k25",
+   "text": "At Kata Tjuta the ancestral beings' activities are so sensitive that not even their names can be revealed; it is a men's site and its Tjukurpa is not shared with visitors.",
+   "sources": [
+    "uluru-kata"
+   ],
+   "label": "evidence",
+   "sensitivity": "RESTRICTED - do not seek or publish stories"
+  },
+  {
+   "id": "k26",
+   "text": "palawa kani means 'Tasmanian Aborigines speak' and is the only Aboriginal language in lutruwita/Tasmania today; the TAC palawa kani Language Program has revived it since the early 1990s.",
+   "sources": [
+    "tac-pk"
+   ],
+   "label": "evidence",
+   "nation": "palawa"
+  },
+  {
+   "id": "k27",
+   "text": "palawa kani is a composite language revived from historical records of the original Tasmanian languages.",
+   "sources": [
+    "aph-tac"
+   ],
+   "label": "evidence",
+   "nation": "palawa"
+  },
+  {
+   "id": "k28",
+   "text": "AustLang lists historical Tasmanian varieties T1-T15, which with historical sources underpin palawa kani (T16); estimates of the original number of languages run from about 8 to 12.",
+   "sources": [
+    "austlang-t3"
+   ],
+   "label": "evidence",
+   "nation": "palawa",
+   "uncertainty": "number of original languages uncertain"
+  },
+  {
+   "id": "k29",
+   "text": "The TAC lists 16 gazetted Aboriginal or dual names in palawa kani, e.g. truwana (Cape Barren Island), kunanyi (Mt Wellington), kanamaluka (Tamar), takayna (Tarkine), larapuna (Bay of Fires), putalina (Oyster Cove).",
+   "sources": [
+    "tac-names"
+   ],
+   "label": "evidence",
+   "nation": "palawa"
+  },
+  {
+   "id": "k30",
+   "text": "lutruwita is the palawa kani name for Tasmania, revived from G.A. Robinson's records.",
+   "sources": [
+    "tac-names-arch"
+   ],
+   "label": "evidence",
+   "nation": "palawa"
+  },
+  {
+   "id": "k31",
+   "text": "Arrernte (C8) covers Eastern and Central Arrernte, spoken in places including Mparntwe (Alice Springs), Santa Teresa and Harts Range; Alyawarr (C14) is a related Arandic language.",
+   "sources": [
+    "austlang-c8",
+    "austlang-c14"
+   ],
+   "label": "evidence",
+   "nation": "Arrernte"
+  },
+  {
+   "id": "k32",
+   "text": "Warlpiri (C15; people call themselves Yapa); communities include Yuendumu, Lajamanu, Nyirrpi and Willowra.",
+   "sources": [
+    "austlang-c15"
+   ],
+   "label": "evidence",
+   "nation": "Warlpiri"
+  },
+  {
+   "id": "k33",
+   "text": "The ranges around Alice Springs are part of the caterpillar dreaming that tells how Mparntwe was formed; Anthwerrke (Emily Gap) is where the caterpillar songlines Yeperenye, Ntyarlke and Utnerrengatye intersect.",
+   "sources": [
+    "nt-yeperenye",
+    "clc-anthwerrke"
+   ],
+   "label": "evidence",
+   "nation": "Arrernte"
+  },
+  {
+   "id": "k34",
+   "text": "Anthwerrke (Emily Gap) is a registered sacred site; Traditional Owners ask visitors not to climb the rocks or photograph rock art.",
+   "sources": [
+    "nt-yep-pdf",
+    "nt-yeperenye"
+   ],
+   "label": "evidence",
+   "nation": "Arrernte",
+   "sensitivity": "No rock-art images on site"
+  },
+  {
+   "id": "k35",
+   "text": "Yalangbara (Port Bradshaw) is the most important site in north-east Arnhem Land for Dhuwa moiety people - the site of the first ancestors, the Djang'kawu.",
+   "sources": [
+    "nma-yalangbara"
+   ],
+   "label": "evidence",
+   "nation": "Yolngu (Rirratjingu)"
+  },
+  {
+   "id": "k36",
+   "text": "Many Aboriginal artworks carry strict rules about who may paint certain symbols; students should not copy Aboriginal paintings or symbols.",
+   "sources": [
+    "nma-yalangbara"
+   ],
+   "label": "evidence",
+   "sensitivity": "ICIP - do not reproduce designs"
+  },
+  {
+   "id": "k37",
+   "text": "In 1963 Yolngu from Yirrkala sent the Yirrkala Bark Petitions, in Yolngu Matha and English, to Parliament, protesting the removal of land for bauxite mining; signatories represented clans of both moieties.",
+   "sources": [
+    "aiatsis-landrights",
+    "atns-bark"
+   ],
+   "label": "evidence",
+   "nation": "Yolngu"
+  },
+  {
+   "id": "k38",
+   "text": "Songlines: Tracking the Seven Sisters was curated with senior custodians of Martu country and the APY and Ngaanyatjarra lands; it showed sections of five Western and Central Desert songlines across 500,000 km2.",
+   "sources": [
+    "nma-songlines",
+    "nma-songlines-mr"
+   ],
+   "label": "evidence",
+   "nation": "Martu, Ngaanyatjarra, Anangu Pitjantjatjara Yankunytjatjara"
+  },
+  {
+   "id": "k39",
+   "text": "Papunya, 240 km west of Alice Springs, was founded in 1959; by 1970 about 1,400 people lived there - Pintupi, Luritja, Warlpiri, Kakatja and Anmatyerr.",
+   "sources": [
+    "nma-papunya"
+   ],
+   "label": "evidence",
+   "nation": "Pintupi, Luritja, Warlpiri, Anmatyerr"
+  },
+  {
+   "id": "k40",
+   "text": "In 1971 Papunya men began painting traditional designs on boards; Papunya Tula Artists (1972) was Australia's first Aboriginal arts company. Artists later changed styles to hide secret or sacred knowledge.",
+   "sources": [
+    "nma-papunya"
+   ],
+   "label": "evidence",
+   "sensitivity": "Early boards contained restricted designs - do not reproduce"
+  },
+  {
+   "id": "k41",
+   "text": "The Waugal (spellings include Waakal, Wagyl) is the major spirit for Noongar, a serpent recognised as giver of life maintaining all fresh water; it made Noongar custodians of the land and in the Nyitting created rivers, swamps and waterholes.",
+   "sources": [
+    "kn-wagyl-arch"
+   ],
+   "label": "evidence",
+   "nation": "Noongar"
+  }
+ ],
+ "groups": [
+  {
+   "id": "g1",
+   "text": "Anangu - Traditional Owners of Uluru-Kata Tjuta National Park; the Tjukurpa fact sheet refers to Pitjantjatjara country, and ancestral paths (iwara) extend hundreds of km beyond the park.",
+   "sources": [
+    "uluru-tjukurpa",
+    "unesco-uluru",
+    "austlang-c6",
+    "austlang-c4"
+   ],
+   "label": "evidence",
+   "name": "Anangu",
+   "languages": [
+    "Pitjantjatjara (C6)",
+    "Yankunytjatjara (C4)"
+   ],
+   "status": "present",
+   "approximate_location": {
+    "lat": -25.33333,
+    "lon": 131.0,
+    "source_format": "S25 19 60 E131 0 0"
+   },
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country.",
+   "austlang": [
+    "C6",
+    "C4"
+   ]
+  },
+  {
+   "id": "g2",
+   "text": "Gunditjmara - Traditional Owners of the Budj Bim Cultural Landscape in south-western Victoria; represented by Gunditj Mirring Traditional Owners Aboriginal Corporation.",
+   "sources": [
+    "unesco-budj",
+    "oric-budj",
+    "gmtoac-budj",
+    "austlang-s20"
+   ],
+   "label": "evidence",
+   "name": "Gunditjmara",
+   "status": "present",
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country.",
+   "austlang": [
+    "S20"
+   ],
+   "languages": [
+    "Dhauwurd Wurrung / Gunditjmara (S20)"
+   ]
+  },
+  {
+   "id": "g3",
+   "text": "Kaurna (L3), Adelaide Plains; Thura-Yura subgroup of Pama-Nyungan.",
+   "sources": [
+    "austlang-l3",
+    "bom-kaurna"
+   ],
+   "label": "evidence",
+   "name": "Kaurna",
+   "austlang": [
+    "L3"
+   ],
+   "status": "present",
+   "torres_strait": false,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  },
+  {
+   "id": "g4",
+   "text": "Noongar (W41), south-west Western Australia.",
+   "sources": [
+    "austlang-w41",
+    "bom-nyoongar"
+   ],
+   "label": "evidence",
+   "name": "Noongar",
+   "austlang": [
+    "W41"
+   ],
+   "status": "present",
+   "torres_strait": false,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  },
+  {
+   "id": "g5",
+   "text": "Yawuru (K1), Broome and Roebuck Bay; non-Pama-Nyungan (Eastern Nyulnyulan).",
+   "sources": [
+    "austlang-k1",
+    "bom-yawuru"
+   ],
+   "label": "evidence",
+   "name": "Yawuru",
+   "austlang": [
+    "K1"
+   ],
+   "status": "present",
+   "torres_strait": false,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  },
+  {
+   "id": "g6",
+   "text": "Jawoyn (N57), Katherine River region, NT.",
+   "sources": [
+    "austlang-n57",
+    "bom-jawoyn"
+   ],
+   "label": "evidence",
+   "name": "Jawoyn",
+   "austlang": [
+    "N57"
+   ],
+   "status": "present",
+   "torres_strait": false,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  },
+  {
+   "id": "g7",
+   "text": "Maung (N64), Goulburn Islands, NT.",
+   "sources": [
+    "austlang-n64",
+    "bom-maung"
+   ],
+   "label": "evidence",
+   "name": "Maung",
+   "austlang": [
+    "N64"
+   ],
+   "status": "present",
+   "torres_strait": false,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  },
+  {
+   "id": "g8",
+   "text": "Tiwi (N20), Tiwi Islands, NT.",
+   "sources": [
+    "austlang-n20",
+    "bom-tiwi"
+   ],
+   "label": "evidence",
+   "name": "Tiwi",
+   "austlang": [
+    "N20"
+   ],
+   "status": "present",
+   "torres_strait": false,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  },
+  {
+   "id": "g9",
+   "text": "Yanyuwa (N153), Gulf of Carpentaria.",
+   "sources": [
+    "austlang-n153",
+    "bom-yanyuwa"
+   ],
+   "label": "evidence",
+   "name": "Yanyuwa",
+   "austlang": [
+    "N153"
+   ],
+   "status": "present",
+   "torres_strait": false,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  },
+  {
+   "id": "g10",
+   "text": "Miriwoong (K29), Kununurra, WA, with Gajirrabeng neighbours.",
+   "sources": [
+    "austlang-k29",
+    "bom-miriwoong"
+   ],
+   "label": "evidence",
+   "name": "Miriwoong",
+   "austlang": [
+    "K29"
+   ],
+   "status": "present",
+   "torres_strait": false,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  },
+  {
+   "id": "g11",
+   "text": "D'harawal (S59; code not page-verified), Sydney south to Shoalhaven.",
+   "sources": [
+    "austlang-s59",
+    "bom-dharawal"
+   ],
+   "label": "evidence",
+   "name": "D'harawal",
+   "austlang": [
+    "S59"
+   ],
+   "status": "present",
+   "torres_strait": false,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  },
+  {
+   "id": "g12",
+   "text": "Bundjalung (E12) and Githabul/Gidhabal (E14): nations for whom Wollumbin is of highest significance.",
+   "sources": [
+    "austlang-e12",
+    "austlang-e14",
+    "npws-wollumbin"
+   ],
+   "label": "evidence",
+   "name": "Bundjalung",
+   "austlang": [
+    "E12"
+   ],
+   "status": "present",
+   "torres_strait": false,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  },
+  {
+   "id": "g13",
+   "text": "Meriam Mir (Y3) spoken on Mer, Erub and Ugar, eastern Torres Strait.",
+   "sources": [
+    "austlang-y3"
+   ],
+   "label": "evidence",
+   "name": "Meriam (Kemer Kemer Meriam Nation)",
+   "austlang": [
+    "Y3"
+   ],
+   "status": "present",
+   "torres_strait": true,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  },
+  {
+   "id": "g14",
+   "text": "Kala Lagaw Ya (Y1), western Torres Strait language.",
+   "sources": [
+    "austlang-y1",
+    "austlang-y3"
+   ],
+   "label": "evidence",
+   "name": "Western Torres Strait peoples",
+   "austlang": [
+    "Y1"
+   ],
+   "status": "present",
+   "torres_strait": true,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  },
+  {
+   "id": "g15",
+   "text": "Erubam Le, people of Erub (Darnley Island); Erub variety of Meriam Mir.",
+   "sources": [
+    "bom-erub-island",
+    "austlang-y3"
+   ],
+   "label": "evidence",
+   "name": "Erubam Le",
+   "austlang": [
+    "Y3"
+   ],
+   "status": "present",
+   "torres_strait": true,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  },
+  {
+   "id": "g16",
+   "text": "Gundungurra, Traditional Owners around Echo Point / Jamison Valley, Blue Mountains (AustLang S60 / Gandangara, as listed on the Dharawal page).",
+   "sources": [
+    "dos-echo",
+    "burge-3s",
+    "austlang-s59"
+   ],
+   "label": "evidence",
+   "name": "Gundungurra",
+   "austlang": [
+    "S60"
+   ],
+   "status": "present",
+   "torres_strait": false,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  },
+  {
+   "id": "g17",
+   "text": "palawa (Tasmanian Aboriginal people); language palawa kani (T16).",
+   "sources": [
+    "tac-pk",
+    "austlang-t3"
+   ],
+   "label": "evidence",
+   "name": "palawa",
+   "austlang": [
+    "T16"
+   ],
+   "status": "present",
+   "torres_strait": false,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  },
+  {
+   "id": "g18",
+   "text": "Arrernte (Eastern and Central), Mparntwe/Alice Springs region.",
+   "sources": [
+    "austlang-c8",
+    "nt-yeperenye"
+   ],
+   "label": "evidence",
+   "name": "Arrernte",
+   "austlang": [
+    "C8"
+   ],
+   "status": "present",
+   "torres_strait": false,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  },
+  {
+   "id": "g19",
+   "text": "Alyawarr, Arandic language C14 (Lake Nash/Ilperrelhelam and western communities).",
+   "sources": [
+    "austlang-c14"
+   ],
+   "label": "evidence",
+   "name": "Alyawarr",
+   "austlang": [
+    "C14"
+   ],
+   "status": "present",
+   "torres_strait": false,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  },
+  {
+   "id": "g20",
+   "text": "Warlpiri / Yapa (C15), Tanami Desert.",
+   "sources": [
+    "austlang-c15"
+   ],
+   "label": "evidence",
+   "name": "Warlpiri",
+   "austlang": [
+    "C15"
+   ],
+   "status": "present",
+   "torres_strait": false,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  },
+  {
+   "id": "g21",
+   "text": "Yolngu of north-east Arnhem Land; Yolngu Matha listed as N234 on the AustLang Mawng page; Dhuwa and Yirritja moieties.",
+   "sources": [
+    "austlang-n64",
+    "aiatsis-landrights",
+    "nma-yalangbara"
+   ],
+   "label": "evidence",
+   "name": "Yolngu",
+   "austlang": [
+    "N234"
+   ],
+   "status": "present",
+   "torres_strait": false,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  },
+  {
+   "id": "g22",
+   "text": "Martu (Western Desert, WA): custodians of the Minyipuru (Seven Sisters) Jukurrpa.",
+   "sources": [
+    "nma-songlines"
+   ],
+   "label": "evidence",
+   "name": "Martu",
+   "austlang": [],
+   "status": "present",
+   "torres_strait": false,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  },
+  {
+   "id": "g23",
+   "text": "Ngaanyatjarra (Western Desert): Seven Sisters songlines custodians.",
+   "sources": [
+    "nma-songlines",
+    "nma-songlines-mr"
+   ],
+   "label": "evidence",
+   "name": "Ngaanyatjarra",
+   "austlang": [],
+   "status": "present",
+   "torres_strait": false,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  },
+  {
+   "id": "g24",
+   "text": "Pintupi and Luritja: majority of people at Papunya by 1970; core of the Papunya Tula painting movement.",
+   "sources": [
+    "nma-papunya"
+   ],
+   "label": "evidence",
+   "name": "Pintupi / Luritja",
+   "austlang": [],
+   "status": "present",
+   "torres_strait": false,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  },
+  {
+   "id": "g25",
+   "text": "Darug (S64) and Eora (S61): neighbours of Dharawal to the north; Gundungurra (S60) to the west (codes as listed on the AustLang Dharawal page).",
+   "sources": [
+    "austlang-s59"
+   ],
+   "label": "evidence",
+   "name": "Darug / Eora",
+   "austlang": [
+    "S64",
+    "S61"
+   ],
+   "status": "present",
+   "torres_strait": false,
+   "approximate_location": null,
+   "boundary_caveat": "Boundaries approximate and contested (AIATSIS map caveat); not suitable for native title or land claims; only Traditional Custodians can speak for Country."
+  }
+ ],
+ "stories": [
+  {
+   "id": "s1",
+   "title": "Kuniya and Liru (Tjukurpa)",
+   "nation": "Anangu",
+   "place": "Mutitjulu Waterhole, Uluru",
+   "public_summary": "Officially described as the battle between Kuniya (woma python woman) and Liru (poisonous brown snake man) at Mutitjulu Waterhole, which shaped Uluru; marks remain in the stone and the Cultural Centre building represents the two beings.",
+   "sources": [
+    "uluru-kuniya",
+    "uluru-stories"
+   ],
+   "label": "evidence",
+   "sensitivity": "HIGH - Parks Australia explicitly asks people NOT to replicate or re-tell Tjukurpa stories, including names. RECOMMEND: do not publish a retelling; link to uluru.gov.au only, or seek permission via Anangu/Central Land Council.",
+   "publish_status": "link-only",
+   "secret_sacred": false,
+   "deceased_persons": false
+  },
+  {
+   "id": "s2",
+   "title": "Budj Bim, the Ancestral Being and volcano",
+   "nation": "Gunditjmara",
+   "place": "Budj Bim (formerly Mount Eccles), Victoria",
+   "public_summary": "Gunditjmara tell that ancestors witnessed the eruption of the Budj Bim volcano, in which the Ancestral Being Budj Bim ('Big Head') revealed/transformed himself into the landscape; the lava flow later underpinned kooyang (short-finned eel) aquaculture built from at least 6,600 years ago.",
+   "sources": [
+    "gmtoac-budj",
+    "dcceew-budj",
+    "unesco-budj",
+    "oric-budj"
+   ],
+   "label": "evidence",
+   "uncertainty": "Eruption dating varies by source: ~30,000 yrs (DCCEEW, Budj Bim site), 37,000 yrs (ORIC); UNESCO cites 'deep time' of at least 32,000 yrs.",
+   "sensitivity": "Publicly shared by Gunditjmara via their own site; quote summary only and credit Gunditjmara; check ICIP terms with GMTOAC before extended use.",
+   "publish_status": "summary-with-credit",
+   "secret_sacred": false,
+   "deceased_persons": false
+  },
+  {
+   "id": "s3",
+   "title": "Tagai",
+   "nation": "Torres Strait Islanders (as told by Gail Mabo, Piadram clan, Mer)",
+   "place": "Night sky over Zenadth Kes",
+   "public_summary": "Tagai is a figure in the stars: a man standing in a canoe holding a fishing spear (the Southern Cross) in his left hand and a sorbi fruit in his right. In one public version his 12 crew ate the voyage's food, so Tagai cast them into the sea and they became star patterns (Pleiades, Orion). Tagai guides navigation, planting, turtle and dugong hunting and seasons.",
+   "sources": [
+    "qcaa-tagai",
+    "agsa-mabo",
+    "sbs-mabo"
+   ],
+   "label": "evidence",
+   "sensitivity": "Publicly shared by knowledge holder; credit Gail Mabo and Mer; quote her own published words.",
+   "publish_status": "summary-with-credit",
+   "secret_sacred": false,
+   "deceased_persons": true,
+   "deceased_note": "Mentions the late Eddie Koiki Mabo and Benny Mabo - show deceased-persons warning."
+  },
+  {
+   "id": "s4",
+   "title": "Bunjil at Gariwerd",
+   "nation": "Djab Wurrung / Jardwadjali (Gariwerd)",
+   "place": "Bunjil's Shelter, Black Range Scenic Reserve near Stawell, Vic",
+   "public_summary": "Parks Victoria: Bunjils Shelter holds the only known rock-art depiction of the creator spirit Bunjil and is one of the most significant cultural places in south-eastern Australia. (Dingo-helper detail is from secondary sources only.)",
+   "sources": [
+    "parksvic-bunjil",
+    "anu-gariwerd",
+    "vg-bunjil"
+   ],
+   "label": "evidence (verified: Parks Victoria page read)",
+   "sensitivity": "Check with Barengi Gadjin Land Council / Eastern Maar on current wording.",
+   "publish_status": "summary-with-credit",
+   "secret_sacred": false,
+   "deceased_persons": false
+  },
+  {
+   "id": "s5",
+   "title": "The Waugal (Waakal / Wagyl)",
+   "nation": "Noongar (Whadjuk)",
+   "place": "Fresh waterways of Noongar boodja, incl. Darling Scarp (Derbarl Yerrigan link is search-summary only)",
+   "public_summary": "The Waugal is a serpent spirit recognised by Noongar as the giver of life, maintaining fresh water; in the Nyitting it created the rivers, swamps and waterholes, and it made Noongar custodians of the land. The Darling Scarp is said to represent its body.",
+   "sources": [
+    "kn-wagyl-arch",
+    "kn-wagyl"
+   ],
+   "label": "evidence (verified via archived Kaartdijin Noongar page)",
+   "sensitivity": "Community-published; credit Noongar and link to Kaartdijin Noongar.",
+   "publish_status": "summary-with-credit",
+   "secret_sacred": false,
+   "deceased_persons": false
+  },
+  {
+   "id": "s6",
+   "title": "The Three Sisters (contested story) and Muggadah",
+   "nation": "Gundungurra (and Darug connections)",
+   "place": "Echo Point, Katoomba, Blue Mountains",
+   "public_summary": "The widely told 'legend' of the Three Sisters is traced to a 1931 newspaper story by schoolgirl Patricia Stone, later popularised by Mel Ward (1949). Gundungurra describe the formations as remnants of seven stone pillars linked to the Muggadah (Seven Sisters Dreaming, Pleiades). Declared an Aboriginal Place 2014.",
+   "sources": [
+    "dos-echo",
+    "burge-3s"
+   ],
+   "label": "evidence",
+   "sensitivity": "Use as a teaching example of misattributed 'Dreaming' stories; do not present the tourist version as Aboriginal.",
+   "publish_status": "summary-with-credit",
+   "secret_sacred": false,
+   "deceased_persons": true,
+   "deceased_note": "Dictionary of Sydney cites the late Aunty Joan Cooper (Darug)."
+  },
+  {
+   "id": "s7",
+   "title": "The Caterpillar Dreaming of Mparntwe",
+   "nation": "Arrernte (Central/Eastern)",
+   "place": "Anthwerrke (Emily Gap) and ranges around Alice Springs",
+   "public_summary": "Public park materials say the caterpillar beings of Mparntwe originated at Anthwerrke, formed the gap and many features around Alice Springs, and radiated out to the edge of the Simpson Desert. Three caterpillar songlines - Yeperenye, Ntyarlke and Utnerrengatye - intersect there.",
+   "sources": [
+    "nt-yep-pdf",
+    "clc-anthwerrke",
+    "nt-yeperenye"
+   ],
+   "label": "evidence",
+   "sensitivity": "Registered sacred site; Traditional Owners share fuller story via their Anthwerrke app - link there.",
+   "publish_status": "summary-with-credit",
+   "secret_sacred": false,
+   "deceased_persons": false
+  },
+  {
+   "id": "s8",
+   "title": "Journey of the Djang'kawu to Yalangbara",
+   "nation": "Yolngu - Rirratjingu clan (Dhuwa moiety); custodians the Marika family",
+   "place": "Yalangbara (Port Bradshaw), north-east Arnhem Land",
+   "public_summary": "As published by the National Museum for schools: the Djang'kawu - two sisters and a male companion - travelled from Burralku to Yalangbara, where the Rirratjingu clan has its origin. The Marika family are custodians; Dhuwa moiety.",
+   "sources": [
+    "nma-yalangbara"
+   ],
+   "label": "evidence",
+   "sensitivity": "Published for education with the Marika family; do not copy associated artworks/symbols.",
+   "publish_status": "summary-with-credit",
+   "secret_sacred": false,
+   "deceased_persons": "unknown - apply deceased-persons warning by default",
+   "deceased_note": "Resource names artists Mawalan and Milpirrum Marika - apply warning."
+  },
+  {
+   "id": "s9",
+   "title": "Seven Sisters (Minyipuru / Kungkarangkalpa)",
+   "nation": "Martu; Ngaanyatjarra; Anangu Pitjantjatjara Yankunytjatjara",
+   "place": "Western and Central Deserts (e.g. Pangkal, Parnngurr, Walinynga/Cave Hill)",
+   "public_summary": "The Seven Sisters songlines are a story of pursuit and escape travelling west to east across Martu, Ngaanyatjarra and APY lands; NMA's exhibition was directed by senior custodians.",
+   "sources": [
+    "nma-songlines",
+    "nma-songlines-mr"
+   ],
+   "label": "evidence",
+   "sensitivity": "Much of the songline is restricted; publish only what NMA/custodians present publicly.",
+   "publish_status": "link-only",
+   "secret_sacred": false,
+   "deceased_persons": "unknown - apply deceased-persons warning by default"
+  }
+ ],
+ "places": [
+  {
+   "id": "p1",
+   "text": "Uluru-Kata Tjuta National Park, UNESCO World Heritage (centroid coordinates).",
+   "sources": [
+    "unesco-uluru"
+   ],
+   "label": "evidence",
+   "coords": {
+    "lat": -25.33333,
+    "lon": 131.0,
+    "source_format": "S25 19 60 E131 0 0"
+   },
+   "nation": "Anangu"
+  },
+  {
+   "id": "p2",
+   "text": "Budj Bim Cultural Landscape inscribed on World Heritage List 6 July 2019 (first Australian landscape inscribed for cultural values per ORIC); components include Tae Rak (Lake Condah), Tyrendarra and Kurtonitj.",
+   "sources": [
+    "dcceew-budj",
+    "unesco-budj",
+    "oric-budj"
+   ],
+   "label": "evidence",
+   "coords": null,
+   "nation": "Gunditjmara"
+  },
+  {
+   "id": "p3",
+   "text": "Kata Tjuta: restricted men's site; photography is restricted in parts of the park (see Parks Australia).",
+   "sources": [
+    "uluru-kata"
+   ],
+   "label": "evidence",
+   "coords": null,
+   "nation": "Anangu",
+   "sensitivity": "restricted"
+  },
+  {
+   "id": "p4",
+   "text": "Wollumbin (Mount Warning): sacred to Bundjalung and Githabul nations; declared an Aboriginal Place above 600 m in 2014; summit track closed and closure extended to 30 June 2027.",
+   "sources": [
+    "npws-wollumbin",
+    "nsw-wollumbin-plan",
+    "nsw-wollumbin-min"
+   ],
+   "label": "evidence",
+   "coords": null,
+   "nation": "Bundjalung, Githabul",
+   "sensitivity": "Ceremonial/initiation connections - no stories published"
+  },
+  {
+   "id": "p5",
+   "text": "Echo Point / Three Sisters, Blue Mountains: declared an Aboriginal Place 2014.",
+   "sources": [
+    "dos-echo"
+   ],
+   "label": "evidence",
+   "coords": null,
+   "nation": "Gundungurra"
+  },
+  {
+   "id": "p6",
+   "text": "Bunjil's Shelter, Black Range Scenic Reserve near Stawell, Victoria.",
+   "sources": [
+    "vg-bunjil",
+    "anu-gariwerd"
+   ],
+   "label": "evidence",
+   "coords": null
+  },
+  {
+   "id": "p7",
+   "text": "Erub (Darnley Island), north-eastern Torres Strait.",
+   "sources": [
+    "bom-erub-island"
+   ],
+   "label": "evidence",
+   "coords": null,
+   "nation": "Erubam Le"
+  },
+  {
+   "id": "p8",
+   "text": "Masig (Yorke Island), Central Islands, Torres Strait.",
+   "sources": [
+    "bom-masig"
+   ],
+   "label": "evidence",
+   "coords": null,
+   "nation": "Masigalgal"
+  },
+  {
+   "id": "p9",
+   "text": "Mer (Murray Island), eastern Torres Strait - home of Meriam Mir (Mer variety).",
+   "sources": [
+    "austlang-y3",
+    "agsa-mabo"
+   ],
+   "label": "evidence",
+   "coords": null,
+   "nation": "Meriam"
+  },
+  {
+   "id": "p10",
+   "text": "Wattleridge Indigenous Protected Area (650 ha), NSW.",
+   "sources": [
+    "bom-banbai"
+   ],
+   "label": "evidence",
+   "coords": null,
+   "nation": "Banbai"
+  },
+  {
+   "id": "p11",
+   "text": "Truwana / Cape Barren Island: gazetted Aboriginal/dual palawa kani name; island returned to Aboriginal people in 2005.",
+   "sources": [
+    "tac-names"
+   ],
+   "label": "evidence",
+   "coords": null,
+   "nation": "palawa"
+  },
+  {
+   "id": "p12",
+   "text": "Kunanyi / Mt Wellington: gazetted Aboriginal/dual palawa kani name.",
+   "sources": [
+    "tac-names"
+   ],
+   "label": "evidence",
+   "coords": null,
+   "nation": "palawa"
+  },
+  {
+   "id": "p13",
+   "text": "Kanamaluka / River Tamar: gazetted Aboriginal/dual palawa kani name.",
+   "sources": [
+    "tac-names"
+   ],
+   "label": "evidence",
+   "coords": null,
+   "nation": "palawa"
+  },
+  {
+   "id": "p14",
+   "text": "Takayna / The Tarkine: gazetted Aboriginal/dual palawa kani name.",
+   "sources": [
+    "tac-names"
+   ],
+   "label": "evidence",
+   "coords": null,
+   "nation": "palawa"
+  },
+  {
+   "id": "p15",
+   "text": "Larapuna / Bay of Fires: gazetted Aboriginal/dual palawa kani name.",
+   "sources": [
+    "tac-names"
+   ],
+   "label": "evidence",
+   "coords": null,
+   "nation": "palawa"
+  },
+  {
+   "id": "p16",
+   "text": "Putalina / Oyster Cove: gazetted Aboriginal/dual palawa kani name.",
+   "sources": [
+    "tac-names",
+    "tac-names-arch"
+   ],
+   "label": "evidence",
+   "coords": null,
+   "nation": "palawa"
+  },
+  {
+   "id": "p22",
+   "text": "Anthwerrke (Emily Gap), Yeperenye/Emily and Jessie Gaps Nature Park, 10 km east of Alice Springs on the Ross Highway.",
+   "sources": [
+    "nt-yeperenye",
+    "nt-yep-pdf"
+   ],
+   "label": "evidence",
+   "coords": null,
+   "nation": "Arrernte",
+   "sensitivity": "registered sacred site"
+  },
+  {
+   "id": "p23",
+   "text": "Yalangbara (Port Bradshaw), north-east Arnhem Land.",
+   "sources": [
+    "nma-yalangbara"
+   ],
+   "label": "evidence",
+   "coords": null,
+   "nation": "Yolngu (Rirratjingu)"
+  },
+  {
+   "id": "p24",
+   "text": "Papunya, 240 km west of Alice Springs (founded 1959).",
+   "sources": [
+    "nma-papunya"
+   ],
+   "label": "evidence",
+   "coords": null,
+   "nation": "Pintupi, Luritja and others"
+  },
+  {
+   "id": "p25",
+   "text": "Yirrkala, north-east Arnhem Land - origin of the 1963 bark petitions.",
+   "sources": [
+    "aiatsis-landrights"
+   ],
+   "label": "evidence",
+   "coords": null,
+   "nation": "Yolngu"
+  }
+ ],
+ "people": [
+  {
+   "id": "pp1",
+   "text": "Gail Mabo, Piadram clan, Mer - artist and knowledge holder who shares the Tagai story.",
+   "sources": [
+    "agsa-mabo",
+    "sbs-mabo"
+   ],
+   "label": "evidence",
+   "deceased_persons": false
+  },
+  {
+   "id": "pp2",
+   "text": "Eddie Koiki Mabo - taught Tagai to his daughter; a star was named for him in 2015 (per SBS).",
+   "sources": [
+    "sbs-mabo"
+   ],
+   "label": "evidence",
+   "deceased_persons": true,
+   "sensitivity": "deceased - warning"
+  },
+  {
+   "id": "pp3",
+   "text": "Adhi Ephraim Bani - Torres Strait Elder and linguist who created the name Zenadth Kes.",
+   "sources": [
+    "austlang-y3"
+   ],
+   "label": "evidence",
+   "deceased_persons": "unknown - apply deceased-persons warning by default"
+  },
+  {
+   "id": "pp4",
+   "text": "Kaapa Tjampitjinpa - his painting jointly won the 1971 Caltex Golden Jubilee Art Award; first Aboriginal Australian to win a contemporary art award.",
+   "sources": [
+    "nma-papunya"
+   ],
+   "label": "evidence",
+   "deceased_persons": "unknown - apply deceased-persons warning by default"
+  },
+  {
+   "id": "pp5",
+   "text": "Geoffrey Bardon - Papunya schoolteacher (1971) who encouraged the mural and sold early boards.",
+   "sources": [
+    "nma-papunya"
+   ],
+   "label": "evidence",
+   "indigenous": false
+  },
+  {
+   "id": "pp6",
+   "text": "Charlie Tarawa (Tjaruru), Pintupi - proposed the name Papunya Tula (June 1972), 'a meeting place for all brothers and cousins'.",
+   "sources": [
+    "nma-papunya"
+   ],
+   "label": "evidence",
+   "deceased_persons": "unknown - apply deceased-persons warning by default"
+  },
+  {
+   "id": "pp7",
+   "text": "Banduk Marika - Marika family member quoted in the NMA Yalangbara resource.",
+   "sources": [
+    "nma-yalangbara"
+   ],
+   "label": "evidence (name as in resource)",
+   "deceased_persons": "unknown - apply deceased-persons warning by default"
+  },
+  {
+   "id": "pp8",
+   "text": "Kumpaya Girgirba (Martu) - senior custodian involved in curating Songlines: Tracking the Seven Sisters.",
+   "sources": [
+    "nma-songlines"
+   ],
+   "label": "evidence",
+   "deceased_persons": "unknown - apply deceased-persons warning by default"
+  }
+ ],
+ "timeline": [
+  {
+   "id": "tl5",
+   "text": "1959 - Papunya settlement founded.",
+   "sources": [
+    "nma-papunya"
+   ],
+   "label": "evidence",
+   "year": 1959
+  },
+  {
+   "id": "tl6",
+   "text": "1963 - Yirrkala Bark Petitions sent to Parliament.",
+   "sources": [
+    "aiatsis-landrights",
+    "atns-bark"
+   ],
+   "label": "evidence",
+   "year": 1963
+  },
+  {
+   "id": "tl7",
+   "text": "1971-72 - Papunya painting movement; Papunya Tula Artists formed 1972.",
+   "sources": [
+    "nma-papunya"
+   ],
+   "label": "evidence",
+   "year": 1971
+  },
+  {
+   "id": "tl9",
+   "text": "Early 1990s onward - TAC palawa kani language program.",
+   "sources": [
+    "aph-tac"
+   ],
+   "label": "evidence",
+   "year": 1993
+  },
+  {
+   "id": "tl11",
+   "text": "2005 - Truwana/Cape Barren Island returned to Aboriginal people.",
+   "sources": [
+    "tac-names"
+   ],
+   "label": "evidence",
+   "year": 2005
+  },
+  {
+   "id": "tl14",
+   "text": "6 July 2019 - Budj Bim inscribed on the World Heritage List.",
+   "sources": [
+    "dcceew-budj"
+   ],
+   "label": "evidence",
+   "year": 2019
+  },
+  {
+   "id": "tl15",
+   "text": "2020 - NMA media release on the Songlines: Tracking the Seven Sisters touring exhibition.",
+   "sources": [
+    "nma-songlines-mr"
+   ],
+   "label": "evidence",
+   "year": 2020
+  }
+ ],
+ "further_reading": [
+  {
+   "id": "fr1",
+   "text": "AustLang online register and CC-BY dataset (data.gov.au) - language names, codes, approximate locations.",
+   "sources": [
+    "austlang-help"
+   ],
+   "label": "evidence"
+  },
+  {
+   "id": "fr2",
+   "text": "AIATSIS Map of Indigenous Australia (link, don't reproduce).",
+   "sources": [
+    "aiatsis-map",
+    "aiatsis-perm"
+   ],
+   "label": "evidence"
+  },
+  {
+   "id": "fr3",
+   "text": "BOM Indigenous Weather Knowledge seasonal calendars.",
+   "sources": [
+    "bom-nyoongar",
+    "bom-erub-island"
+   ],
+   "label": "evidence"
+  },
+  {
+   "id": "fr4",
+   "text": "Uluru-Kata Tjuta stories pages and Tjukurpa fact sheet.",
+   "sources": [
+    "uluru-stories",
+    "uluru-tjukurpa"
+   ],
+   "label": "evidence"
+  },
+  {
+   "id": "fr5",
+   "text": "Budj Bim Cultural Landscape site (Gunditj Mirring TOAC).",
+   "sources": [
+    "gmtoac-budj"
+   ],
+   "label": "evidence"
+  },
+  {
+   "id": "fr6",
+   "text": "NMA Defining Moments: Papunya Tula; Songlines exhibition site.",
+   "sources": [
+    "nma-papunya",
+    "nma-songlines"
+   ],
+   "label": "evidence"
+  },
+  {
+   "id": "fr7",
+   "text": "NMA Yalangbara: Art of the Djang'kawu education resource.",
+   "sources": [
+    "nma-yalangbara"
+   ],
+   "label": "evidence"
+  },
+  {
+   "id": "fr8",
+   "text": "Tasmanian Aboriginal Centre palawa kani program.",
+   "sources": [
+    "tac-pk",
+    "tac-names"
+   ],
+   "label": "evidence"
+  },
+  {
+   "id": "fr9",
+   "text": "Wollumbin Aboriginal Place Management Plan (NSW).",
+   "sources": [
+    "nsw-wollumbin-plan"
+   ],
+   "label": "evidence"
+  },
+  {
+   "id": "fr10",
+   "text": "Kaartdijin Noongar (SWALSC) culture site.",
+   "sources": [
+    "kn-wagyl-arch"
+   ],
+   "label": "evidence"
+  }
+ ]
+}

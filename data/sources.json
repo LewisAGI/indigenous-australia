@@ -1,0 +1,602 @@
+[
+ {
+  "id": "aiatsis-map",
+  "title": "Map of Indigenous Australia",
+  "author_org": "AIATSIS (D.R. Horton, creator)",
+  "url": "https://aiatsis.gov.au/explore/map-indigenous-australia",
+  "date_accessed": "2026-10-22",
+  "quality": "Government research institute; authoritative on its own caveats"
+ },
+ {
+  "id": "aiatsis-perm",
+  "title": "Permissions: Using the AIATSIS map",
+  "author_org": "AIATSIS / Aboriginal Studies Press",
+  "url": "https://aiatsis.gov.au/about/what-we-do/aboriginal-studies-press/permissions",
+  "date_accessed": "2026-10-22",
+  "quality": "Primary licensing terms"
+ },
+ {
+  "id": "aiatsis-langs",
+  "title": "Languages alive",
+  "author_org": "AIATSIS",
+  "url": "https://aiatsis.gov.au/explore/languages-alive",
+  "date_accessed": "2026-10-22",
+  "quality": "Government; figures from NILS3 (2018-19)"
+ },
+ {
+  "id": "aiatsis-nils3",
+  "title": "Third National Indigenous Languages Survey (NILS3)",
+  "author_org": "AIATSIS",
+  "url": "https://aiatsis.gov.au/research/aiatsis-centre-australian-languages/national-indigenous-languages-surveys/third-national",
+  "date_accessed": "2026-10-22",
+  "quality": "Primary survey report"
+ },
+ {
+  "id": "uluru-stories",
+  "title": "Stories",
+  "author_org": "Parks Australia / Anangu Traditional Owners",
+  "url": "https://uluru.gov.au/discover/culture/stories/",
+  "date_accessed": "2026-10-22",
+  "quality": "Official, community-endorsed; contains explicit no-retelling request"
+ },
+ {
+  "id": "uluru-kuniya",
+  "title": "The Kuniya & Liru stories",
+  "author_org": "Parks Australia",
+  "url": "https://uluru.gov.au/discover/culture/stories/kuniya-liru-stories/",
+  "date_accessed": "2026-10-22",
+  "quality": "Official; asks not to replicate/retell"
+ },
+ {
+  "id": "uluru-tjukurpa",
+  "title": "Tjukurpa fact sheet",
+  "author_org": "Parks Australia / Anangu",
+  "url": "https://uluru.gov.au/static/58c59795b85f20c2a46409965fb6416c/uktnp-document-fs-tjukurpa.pdf",
+  "date_accessed": "2026-10-22",
+  "quality": "Official, written in Anangu voice"
+ },
+ {
+  "id": "unesco-uluru",
+  "title": "Uluru-Kata Tjuta National Park",
+  "author_org": "UNESCO World Heritage Centre",
+  "url": "https://whc.unesco.org/en/list/447/",
+  "date_accessed": "2026-10-22",
+  "quality": "Intergovernmental; coordinates are a site centroid"
+ },
+ {
+  "id": "unesco-budj",
+  "title": "Budj Bim Cultural Landscape",
+  "author_org": "UNESCO World Heritage Centre",
+  "url": "https://whc.unesco.org/en/list/1577/",
+  "date_accessed": "2026-10-22",
+  "quality": "Intergovernmental, OUV statement"
+ },
+ {
+  "id": "dcceew-budj",
+  "title": "World Heritage Places - Budj Bim Cultural Landscape",
+  "author_org": "Australian Govt DCCEEW",
+  "url": "https://www.dcceew.gov.au/parks-heritage/heritage/places/world/budj-bim",
+  "date_accessed": "2026-10-22",
+  "quality": "Government"
+ },
+ {
+  "id": "gmtoac-budj",
+  "title": "Gunditjmara Culture & People",
+  "author_org": "Budj Bim Cultural Landscape (Gunditj Mirring TOAC)",
+  "url": "https://www.budjbim.com.au/about-us/our-culture/",
+  "date_accessed": "2026-10-22",
+  "quality": "Community-owned source - highest cultural authority"
+ },
+ {
+  "id": "oric-budj",
+  "title": "Recognising Budj Bim",
+  "author_org": "Office of the Registrar of Indigenous Corporations",
+  "url": "https://www.oric.gov.au/spotlight/recognising-budj-bim",
+  "date_accessed": "2026-10-22",
+  "quality": "Government; gives 37,000-year eruption date, differs from others"
+ },
+ {
+  "id": "bom-erub-island",
+  "title": "Erub Island calendar",
+  "author_org": "Bureau of Meteorology Indigenous Weather Knowledge (with community)",
+  "url": "https://www.bom.gov.au/resources/indigenous-weather-knowledge/indigenous-seasonal-calendars/erub-island-calendar",
+  "date_accessed": "2026-10-22",
+  "quality": "Government; calendars produced with/under guidance of Traditional Owners"
+ },
+ {
+  "id": "bom-masig",
+  "title": "Masig calendar",
+  "author_org": "Bureau of Meteorology Indigenous Weather Knowledge (with community)",
+  "url": "https://www.bom.gov.au/resources/indigenous-weather-knowledge/indigenous-seasonal-calendars/masig-calendar",
+  "date_accessed": "2026-10-22",
+  "quality": "Government; calendars produced with/under guidance of Traditional Owners"
+ },
+ {
+  "id": "bom-nyoongar",
+  "title": "Nyoongar calendar",
+  "author_org": "Bureau of Meteorology Indigenous Weather Knowledge (with community)",
+  "url": "https://www.bom.gov.au/resources/indigenous-weather-knowledge/indigenous-seasonal-calendars/nyoongar-calendar",
+  "date_accessed": "2026-10-22",
+  "quality": "Government; calendars produced with/under guidance of Traditional Owners"
+ },
+ {
+  "id": "bom-yawuru",
+  "title": "Yawuru calendar",
+  "author_org": "Bureau of Meteorology Indigenous Weather Knowledge (with community)",
+  "url": "https://www.bom.gov.au/resources/indigenous-weather-knowledge/indigenous-seasonal-calendars/yawuru-calendar",
+  "date_accessed": "2026-10-22",
+  "quality": "Government; calendars produced with/under guidance of Traditional Owners"
+ },
+ {
+  "id": "bom-jawoyn",
+  "title": "Jawoyn calendar",
+  "author_org": "Bureau of Meteorology Indigenous Weather Knowledge (with community)",
+  "url": "https://www.bom.gov.au/resources/indigenous-weather-knowledge/indigenous-seasonal-calendars/jawoyn-calendar",
+  "date_accessed": "2026-10-22",
+  "quality": "Government; calendars produced with/under guidance of Traditional Owners"
+ },
+ {
+  "id": "bom-maung",
+  "title": "Maung calendar",
+  "author_org": "Bureau of Meteorology Indigenous Weather Knowledge (with community)",
+  "url": "https://www.bom.gov.au/resources/indigenous-weather-knowledge/indigenous-seasonal-calendars/maung-calendar",
+  "date_accessed": "2026-10-22",
+  "quality": "Government; calendars produced with/under guidance of Traditional Owners"
+ },
+ {
+  "id": "bom-tiwi",
+  "title": "Tiwi calendar",
+  "author_org": "Bureau of Meteorology Indigenous Weather Knowledge (with community)",
+  "url": "https://www.bom.gov.au/resources/indigenous-weather-knowledge/indigenous-seasonal-calendars/tiwi-calendar",
+  "date_accessed": "2026-10-22",
+  "quality": "Government; calendars produced with/under guidance of Traditional Owners"
+ },
+ {
+  "id": "bom-yanyuwa",
+  "title": "Yanyuwa calendar",
+  "author_org": "Bureau of Meteorology Indigenous Weather Knowledge (with community)",
+  "url": "https://www.bom.gov.au/resources/indigenous-weather-knowledge/indigenous-seasonal-calendars/yanyuwa-calendar",
+  "date_accessed": "2026-10-22",
+  "quality": "Government; calendars produced with/under guidance of Traditional Owners"
+ },
+ {
+  "id": "bom-miriwoong",
+  "title": "Miriwoong calendar",
+  "author_org": "Bureau of Meteorology Indigenous Weather Knowledge (with community)",
+  "url": "https://www.bom.gov.au/resources/indigenous-weather-knowledge/indigenous-seasonal-calendars/miriwoong-calendar",
+  "date_accessed": "2026-10-22",
+  "quality": "Government; calendars produced with/under guidance of Traditional Owners"
+ },
+ {
+  "id": "bom-kaurna",
+  "title": "Kaurna calendar",
+  "author_org": "Bureau of Meteorology Indigenous Weather Knowledge (with community)",
+  "url": "https://www.bom.gov.au/resources/indigenous-weather-knowledge/indigenous-seasonal-calendars/kaurna-calendar",
+  "date_accessed": "2026-10-22",
+  "quality": "Government; calendars produced with/under guidance of Traditional Owners"
+ },
+ {
+  "id": "bom-gariwerd",
+  "title": "Gariwerd calendar",
+  "author_org": "Bureau of Meteorology Indigenous Weather Knowledge (with community)",
+  "url": "https://www.bom.gov.au/resources/indigenous-weather-knowledge/indigenous-seasonal-calendars/gariwerd-calendar",
+  "date_accessed": "2026-10-22",
+  "quality": "Government; calendars produced with/under guidance of Traditional Owners"
+ },
+ {
+  "id": "bom-dharawal",
+  "title": "D'harawal calendar",
+  "author_org": "Bureau of Meteorology Indigenous Weather Knowledge (with community)",
+  "url": "https://www.bom.gov.au/resources/indigenous-weather-knowledge/indigenous-seasonal-calendars/dharawal-calendar",
+  "date_accessed": "2026-10-22",
+  "quality": "Government; calendars produced with/under guidance of Traditional Owners"
+ },
+ {
+  "id": "bom-banbai",
+  "title": "Banbai calendar",
+  "author_org": "Bureau of Meteorology Indigenous Weather Knowledge (with community)",
+  "url": "https://www.bom.gov.au/resources/indigenous-weather-knowledge/indigenous-seasonal-calendars/banbai-calendar",
+  "date_accessed": "2026-10-22",
+  "quality": "Government; calendars produced with/under guidance of Traditional Owners"
+ },
+ {
+  "id": "austlang-c6",
+  "title": "AustLang C6: Pitjantjatjara",
+  "author_org": "AIATSIS AustLang",
+  "url": "https://aiatsis.gov.au/austlang/language/C6",
+  "date_accessed": "2026-10-22",
+  "quality": "Authoritative language register; page read"
+ },
+ {
+  "id": "austlang-c4",
+  "title": "AustLang C4: Yankunytjatjara",
+  "author_org": "AIATSIS AustLang",
+  "url": "https://aiatsis.gov.au/austlang/language/C4",
+  "date_accessed": "2026-10-22",
+  "quality": "Authoritative language register; page read"
+ },
+ {
+  "id": "austlang-s20",
+  "title": "AustLang S20: Dhauwurd Wurrung (Gunditjmara)",
+  "author_org": "AIATSIS AustLang",
+  "url": "https://aiatsis.gov.au/austlang/language/S20",
+  "date_accessed": "2026-10-22",
+  "quality": "Authoritative language register; page read and code verified 2026-10-22"
+ },
+ {
+  "id": "austlang-l3",
+  "title": "AustLang L3: Kaurna",
+  "author_org": "AIATSIS AustLang",
+  "url": "https://aiatsis.gov.au/austlang/language/L3",
+  "date_accessed": "2026-10-22",
+  "quality": "Authoritative language register; page read and code verified 2026-10-22"
+ },
+ {
+  "id": "austlang-w41",
+  "title": "AustLang W41: Noongar",
+  "author_org": "AIATSIS AustLang",
+  "url": "https://aiatsis.gov.au/austlang/language/W41",
+  "date_accessed": "2026-10-22",
+  "quality": "Authoritative language register; page read and code verified 2026-10-22"
+ },
+ {
+  "id": "austlang-k1",
+  "title": "AustLang K1: Yawuru",
+  "author_org": "AIATSIS AustLang",
+  "url": "https://aiatsis.gov.au/austlang/language/K1",
+  "date_accessed": "2026-10-22",
+  "quality": "Authoritative language register; page read"
+ },
+ {
+  "id": "austlang-n57",
+  "title": "AustLang N57: Jawoyn",
+  "author_org": "AIATSIS AustLang",
+  "url": "https://aiatsis.gov.au/austlang/language/N57",
+  "date_accessed": "2026-10-22",
+  "quality": "Authoritative language register; page read"
+ },
+ {
+  "id": "austlang-n64",
+  "title": "AustLang N64: Maung",
+  "author_org": "AIATSIS AustLang",
+  "url": "https://aiatsis.gov.au/austlang/language/N64",
+  "date_accessed": "2026-10-22",
+  "quality": "Authoritative language register; page read and code verified 2026-10-22"
+ },
+ {
+  "id": "austlang-n20",
+  "title": "AustLang N20: Tiwi",
+  "author_org": "AIATSIS AustLang",
+  "url": "https://aiatsis.gov.au/austlang/language/N20",
+  "date_accessed": "2026-10-22",
+  "quality": "Authoritative language register; page read and code verified 2026-10-22"
+ },
+ {
+  "id": "austlang-n153",
+  "title": "AustLang N153: Yanyuwa",
+  "author_org": "AIATSIS AustLang",
+  "url": "https://aiatsis.gov.au/austlang/language/N153",
+  "date_accessed": "2026-10-22",
+  "quality": "Authoritative language register; page read and code verified 2026-10-22"
+ },
+ {
+  "id": "austlang-k29",
+  "title": "AustLang K29: Miriwoong",
+  "author_org": "AIATSIS AustLang",
+  "url": "https://aiatsis.gov.au/austlang/language/K29",
+  "date_accessed": "2026-10-22",
+  "quality": "Authoritative language register; page read and code verified 2026-10-22"
+ },
+ {
+  "id": "austlang-s59",
+  "title": "AustLang S59: Dharawal",
+  "author_org": "AIATSIS AustLang",
+  "url": "https://aiatsis.gov.au/austlang/language/S59",
+  "date_accessed": "2026-10-22",
+  "quality": "Authoritative language register; page read and code verified 2026-10-22"
+ },
+ {
+  "id": "austlang-y3",
+  "title": "AustLang Y3: Meriam Mir",
+  "author_org": "AIATSIS AustLang",
+  "url": "https://aiatsis.gov.au/austlang/language/Y3",
+  "date_accessed": "2026-10-22",
+  "quality": "Authoritative language register; page read"
+ },
+ {
+  "id": "austlang-y1",
+  "title": "AustLang Y1: Kala Lagaw Ya",
+  "author_org": "AIATSIS AustLang",
+  "url": "https://aiatsis.gov.au/austlang/language/Y1",
+  "date_accessed": "2026-10-22",
+  "quality": "Authoritative language register; page read and code verified 2026-10-22"
+ },
+ {
+  "id": "austlang-e12",
+  "title": "AustLang E12: Bundjalung",
+  "author_org": "AIATSIS AustLang",
+  "url": "https://aiatsis.gov.au/austlang/language/E12",
+  "date_accessed": "2026-10-22",
+  "quality": "Authoritative language register; listed on E17 page"
+ },
+ {
+  "id": "austlang-e14",
+  "title": "AustLang E14: Gidhabal",
+  "author_org": "AIATSIS AustLang",
+  "url": "https://aiatsis.gov.au/austlang/language/E14",
+  "date_accessed": "2026-10-22",
+  "quality": "Authoritative language register; listed on E17 page"
+ },
+ {
+  "id": "austlang-e17",
+  "title": "AustLang E17: Yugambeh",
+  "author_org": "AIATSIS AustLang",
+  "url": "https://aiatsis.gov.au/austlang/language/E17",
+  "date_accessed": "2026-10-22",
+  "quality": "Authoritative language register; page read"
+ },
+ {
+  "id": "austlang-help",
+  "title": "AustLang help: codes",
+  "author_org": "AIATSIS",
+  "url": "https://aiatsis.gov.au/austlang/help",
+  "date_accessed": "2026-10-22",
+  "quality": "Primary"
+ },
+ {
+  "id": "tsra",
+  "title": "Torres Strait Regional Authority home",
+  "author_org": "TSRA (Commonwealth statutory body)",
+  "url": "https://www.tsra.gov.au/",
+  "date_accessed": "2026-10-22",
+  "quality": "Government"
+ },
+ {
+  "id": "qcaa-tagai",
+  "title": "Spirituality and religion among Torres Strait Islanders",
+  "author_org": "Queensland Curriculum and Assessment Authority",
+  "url": "https://www.qcaa.qld.edu.au/about/k-12-policies/aboriginal-torres-strait-islander-perspectives/resources/spirituality-religion",
+  "date_accessed": "2026-10-22",
+  "quality": "State education authority"
+ },
+ {
+  "id": "agsa-mabo",
+  "title": "Tarnanthi 2021: Gail Mabo",
+  "author_org": "Art Gallery of South Australia (artist statement)",
+  "url": "https://www.agsa.sa.gov.au/whats-on/exhibitions/tarnanthi-agsa-2021/gail-mabo/",
+  "date_accessed": "2026-10-22",
+  "quality": "Museum; first-person knowledge-holder statement"
+ },
+ {
+  "id": "sbs-mabo",
+  "title": "Eddie Mabo taught his daughter Gail about the stars",
+  "author_org": "SBS NITV",
+  "url": "https://www.sbs.com.au/nitv/article/eddie-mabo-taught-his-daughter-gail-about-the-stars-its-a-lesson-she-loves-to-pass-on/2298z0isz",
+  "date_accessed": "2026-10-22",
+  "quality": "Indigenous broadcaster; quotes Gail Mabo"
+ },
+ {
+  "id": "uluru-kata",
+  "title": "Stories of Kata Tjuta",
+  "author_org": "Parks Australia",
+  "url": "https://uluru.gov.au/discover/culture/stories/stories-kata-tjuta/",
+  "date_accessed": "2026-10-22",
+  "quality": "Official"
+ },
+ {
+  "id": "npws-wollumbin",
+  "title": "Wollumbin summit track: learn more / alerts",
+  "author_org": "NSW National Parks",
+  "url": "https://www.nationalparks.nsw.gov.au/things-to-do/walking-tracks/wollumbin-mount-warning-summit-track/learn-more",
+  "date_accessed": "2026-10-22",
+  "quality": "Government"
+ },
+ {
+  "id": "nsw-wollumbin-plan",
+  "title": "Wollumbin Aboriginal Place Management Plan",
+  "author_org": "NSW Environment & Heritage / Wollumbin Consultative Group",
+  "url": "https://www.environment.nsw.gov.au/sites/default/files/wollumbin-aboriginal-place-management-plan-220307.pdf",
+  "date_accessed": "2026-10-22",
+  "quality": "Government with community statements"
+ },
+ {
+  "id": "nsw-wollumbin-min",
+  "title": "Wollumbin summit track and Aboriginal Place closure",
+  "author_org": "NSW Minister for the Environment",
+  "url": "https://www.environment.nsw.gov.au/news/wollumbin-summit-track-aboriginal-place-closure",
+  "date_accessed": "2026-10-22",
+  "quality": "Government media statement"
+ },
+ {
+  "id": "dos-echo",
+  "title": "Echo Point",
+  "author_org": "Dictionary of Sydney",
+  "url": "https://dictionaryofsydney.org/entry/echo_point",
+  "date_accessed": "2026-10-22",
+  "quality": "Scholarly public history reference"
+ },
+ {
+  "id": "burge-3s",
+  "title": "The tale of a legend",
+  "author_org": "Michael Burge (journalist)",
+  "url": "https://burgewords.com/2013/04/15/the-tale-of-a-legend/",
+  "date_accessed": "2026-10-22",
+  "quality": "Journalism; quotes Gundungurra Elder; secondary"
+ },
+ {
+  "id": "anu-gariwerd",
+  "title": "A short story of Gariwerd: The rock art management chapter",
+  "author_org": "ANU Press",
+  "url": "https://doi.org/10.22459/ta55.2022.07",
+  "date_accessed": "2026-10-22",
+  "quality": "Peer-reviewed press; read via search summary"
+ },
+ {
+  "id": "vg-bunjil",
+  "title": "Bunjil Shelter - Stawell",
+  "author_org": "Visit Grampians",
+  "url": "https://www.visitgrampians.com.au/products/bunjil-shelter---stawell",
+  "date_accessed": "2026-10-22",
+  "quality": "Tourism; low-medium"
+ },
+ {
+  "id": "kn-wagyl",
+  "title": "Kaartdijin Noongar: Derbarl Yerrigan / Spirituality",
+  "author_org": "South West Aboriginal Land & Sea Council (Kaartdijin Noongar)",
+  "url": "https://www.noongarculture.org.au/noongar-words/derbarl-yerrigan/",
+  "date_accessed": "2026-10-22",
+  "quality": "Community-owned; page timed out on fetch, content via search summary"
+ },
+ {
+  "id": "austlang-c8",
+  "title": "AustLang C8: Arrernte (Eastern and Central)",
+  "author_org": "AIATSIS AustLang",
+  "url": "https://aiatsis.gov.au/austlang/language/C8",
+  "date_accessed": "2026-10-22",
+  "quality": "Authoritative; page read"
+ },
+ {
+  "id": "austlang-c15",
+  "title": "AustLang C15: Warlpiri",
+  "author_org": "AIATSIS AustLang",
+  "url": "https://aiatsis.gov.au/austlang/language/C15",
+  "date_accessed": "2026-10-22",
+  "quality": "Authoritative; read via search result page extract"
+ },
+ {
+  "id": "austlang-c14",
+  "title": "AustLang C14: Alyawarr",
+  "author_org": "AIATSIS AustLang",
+  "url": "https://aiatsis.gov.au/austlang/language/C14",
+  "date_accessed": "2026-10-22",
+  "quality": "Authoritative; read via search result page extract"
+ },
+ {
+  "id": "austlang-t3",
+  "title": "AustLang T3: North-western Tasmanian (palawa kani T16)",
+  "author_org": "AIATSIS AustLang",
+  "url": "https://aiatsis.gov.au/austlang/language/T3",
+  "date_accessed": "2026-10-22",
+  "quality": "Authoritative; read via search result page extract"
+ },
+ {
+  "id": "tac-pk",
+  "title": "palawa kani",
+  "author_org": "Tasmanian Aboriginal Centre",
+  "url": "https://tacinc.com.au/programs/palawa-kani/",
+  "date_accessed": "2026-10-22",
+  "quality": "Community-controlled; highest authority for palawa kani"
+ },
+ {
+  "id": "tac-names",
+  "title": "Aboriginal and Dual Names",
+  "author_org": "Tasmanian Aboriginal Centre",
+  "url": "https://tacinc.com.au/programs/palawa-kani/aboriginal-and-dual-names/",
+  "date_accessed": "2026-10-22",
+  "quality": "Community-controlled"
+ },
+ {
+  "id": "tac-names-arch",
+  "title": "Tasmanian Aboriginal place names (archived 2022)",
+  "author_org": "Tasmanian Aboriginal Centre via Wayback Machine",
+  "url": "https://web.archive.org/web/20220628122704/https:/tacinc.com.au/tasmanian-aboriginal-place-names/",
+  "date_accessed": "2026-10-22",
+  "quality": "Community-controlled; archived copy"
+ },
+ {
+  "id": "aph-tac",
+  "title": "Submission No 144 to House of Reps inquiry on Indigenous languages",
+  "author_org": "Tasmanian Aboriginal Centre",
+  "url": "https://www.aph.gov.au/parliamentary_business/committees/House_of_Representatives_Committees?url=atsia%2Flanguages%2Fsubs%2Fsub144.pdf",
+  "date_accessed": "2026-10-22",
+  "quality": "Primary community submission"
+ },
+ {
+  "id": "nt-yeperenye",
+  "title": "Yeperenye / Emily and Jessie Gaps Nature Park",
+  "author_org": "NT Government Parks",
+  "url": "https://nt.gov.au/parks/find-a-park/yeperenye-emily-jessie-gaps-nature-park",
+  "date_accessed": "2026-10-22",
+  "quality": "Government"
+ },
+ {
+  "id": "clc-anthwerrke",
+  "title": "Emily Gap custodians launch Anthwerrke interactive tour",
+  "author_org": "Central Land Council",
+  "url": "https://www.clc.org.au/emily-gap-custodians-launch-anthwerrke-interactive-tour-for-visitors/",
+  "date_accessed": "2026-10-22",
+  "quality": "Land council; Traditional Owner-led"
+ },
+ {
+  "id": "nt-yep-pdf",
+  "title": "Yeperenye / Emily and Jessie Gaps Nature Park fact sheet",
+  "author_org": "NT Parks and Wildlife (via ATDW)",
+  "url": "https://assets.atdw-online.com.au/media/2d560453fd0f3482bef7999699dc9723.pdf",
+  "date_accessed": "2026-10-22",
+  "quality": "Government fact sheet"
+ },
+ {
+  "id": "nma-yalangbara",
+  "title": "Yalangbara: Art of the Djang'kawu education resource",
+  "author_org": "National Museum of Australia",
+  "url": "https://www.nma.gov.au/__data/assets/pdf_file/0012/303105/yalangbara-resource.pdf",
+  "date_accessed": "2026-10-22",
+  "quality": "National museum; story shared with Marika family/Rirratjingu"
+ },
+ {
+  "id": "aiatsis-landrights",
+  "title": "Land rights",
+  "author_org": "AIATSIS",
+  "url": "https://aiatsis.gov.au/explore/land-rights",
+  "date_accessed": "2026-10-22",
+  "quality": "Government research institute"
+ },
+ {
+  "id": "atns-bark",
+  "title": "Yirrkala Bark Petitions 1963",
+  "author_org": "ATNS database (Univ. Melbourne)",
+  "url": "https://database.atns.net.au/agreement.asp?EntityID=9061",
+  "date_accessed": "2026-10-22",
+  "quality": "Academic database"
+ },
+ {
+  "id": "nma-songlines",
+  "title": "About Songlines",
+  "author_org": "National Museum of Australia",
+  "url": "https://www.nma.gov.au/exhibitions/songlines/about",
+  "date_accessed": "2026-10-22",
+  "quality": "National museum; community-curated exhibition"
+ },
+ {
+  "id": "nma-songlines-mr",
+  "title": "Songlines: Tracking the Seven Sisters (media release 2020)",
+  "author_org": "National Museum of Australia",
+  "url": "https://www.nma.gov.au/about/media/media-releases-listing-by-year/2020/songlines-creation-saga",
+  "date_accessed": "2026-10-22",
+  "quality": "National museum"
+ },
+ {
+  "id": "nma-papunya",
+  "title": "Defining Moments: Papunya Tula",
+  "author_org": "National Museum of Australia",
+  "url": "https://www.nma.gov.au/defining-moments/resources/papunya-tula",
+  "date_accessed": "2026-10-22",
+  "quality": "National museum; page read"
+ },
+ {
+  "id": "parksvic-bunjil",
+  "title": "Bunjils Cave Heritage Site (Black Range Scenic Reserve)",
+  "author_org": "Parks Victoria",
+  "url": "https://www.parks.vic.gov.au/places-to-see/sites/bunjils-cave-heritage-site",
+  "date_accessed": "2026-10-22",
+  "quality": "Government; page read"
+ },
+ {
+  "id": "kn-wagyl-arch",
+  "title": "Kaartdijin Noongar: Spirituality (archived)",
+  "author_org": "South West Aboriginal Land & Sea Council via Wayback Machine",
+  "url": "https://web.archive.org/web/2024/https://www.noongarculture.org.au/spirituality/",
+  "date_accessed": "2026-10-22",
+  "quality": "Community-owned; archived copy read 2026-10-22"
+ }
+]
